@@ -1,0 +1,321 @@
+% mnras_template.tex
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Absem Jibrail (The University of Sydney)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{nccmath}
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{verbatim} % To allow for commenting out of blocks of text using comment
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% user defined commands
+% units
+\def \Msun{\ {\rm M_\odot}}
+\def \Msunh{\ h^{-1}{\rm M_\odot}}
+\def \Mpc{{\rm Mpc}}
+\def \kpc{{\rm kpc}}
+\def \Mpch{\ h^{-1}{\rm Mpc}}
+\def \kpch{\ h^{-1}{\rm kpc}}
+\def \Gpch{\ h^{-1}{\rm Gpc}}
+\def \lcdm{$\Lambda$CDM}
+\def \qcdm{$\phi$CDM}
+\newcommand{\dedm}[1]{$\phi(\beta_o=#1)$CDM}
+
+% reference commands
+\newcommand{\Eqref}[1]{Eq.~(\ref{#1})}
+\newcommand{\Figref}[1]{Fig.~\ref{#1}}
+\newcommand{\Secref}[1]{\S\ref{#1}}  
+\newcommand{\Tableref}[1]{Table~\ref{#1}}
+
+
+% for emphasizing comments
+%\newcommand{\PJE}[1]{{\bf\color{Red}PJE-{#1}}}
+
+% number of cosmologies
+\newcommand{\ncosmo}{3}
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[\textit{N}-Body studies of non-standard cosmologies]{ \textit{N}-Body studies of non-standard cosmologies: Spin Correlations and Large-Scale Structures }
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[A. W. Jibrail et al.]{
+Absem W. Jibrail,$^{1}$\thanks{E-mail: ajib0457@uni.sydney.edu.au (EA)}
+Geraint F. Lewis$^{1}$
+and Pascal J. Elahi$^{1,2}$
+\\
+% List of institutions
+$^{1}$Sydney Institute for Astronomy, School of Physics, A28, The University of Sydney, NSW, 2006, Australia\\
+$^{2}$International Centre for Radio Astronomy Research (ICRAR), The University of Western Australia, 35 Stirling Hwy, \\
+Crawley, Western Australia 6009, Australia}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2018}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+Despite the Standard Cosmological Model's ($\Lambda$CDM) success on the largest of scales, there are conceptual and observational shortfalls on galactic scales which need to be addressed. There are Problems of \textit{fine-tuning} of the initial value for vacuum energy density $\Lambda$, a Dark Energy- Dark Matter \textit{coincidence} problem and the "missing satellite" problem have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies to alleviate such shortfalls. A suitable measure for  cosmological model comparison via \textit{N}-Body simulations is Dark Matter halos' Angular Momentum alignment with Large-scale structure. We cross-correlate these alignments from cosmologies evolved via $N$-body, including a quintessence ($\phi$CDM) and relativistic(Warm) Dark Matter (WDM) cosmology, with the reference cosmology being $\Lambda$CDM.  
+
+%This is a simple template for authors to write new MNRAS papers. The abstract should briefly describe the aims, methods, and main results of the paper. It should be a single paragraph not more than 250 words (200 words for Letters). No references should appear in the abstract.
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+cosmology: simulations -- cosmology: large-scale structure of the universe -- dark matter -- dark energy
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+What's known as the 'The baby picture of the universe' - the Cosmic Microwave Background (CMB) - shows an anisotropic temperature distribution within the early universe which is thought to have occurred via quantum fluctuations during the period of Inflation, causing minor inhomogeneities that cascaded post-inflation via the process of gravitational instability into what we see today as knots, filaments, sheets and voids. According to linear theory and the Zel'dovich approximation \citep{Zeldovich_70} evolution of the cosmic web seemed to have begun from over-dense regions which collapsed along their shortest axes into sheets, then sheets to filaments and finally to knots. This large-scale bulk flow provides the tidal field unto which DM halos form and gain their initial spin (spin refers to the halo unit vector direction of Angular Momentum hereafter) and Tidal Torque Theory (TTT) describes the procurement of the initial Angular Momentum of dark matter halos, that is through the influence of the tidal field, which has a great influence on the progenitor before turn-around \citep[Holye 1949][]{Peebles_69,Zeldovich_70}
+
+Past studies utilizing the spin of galaxies as a probe of cosmology have given insight into cosmological processes such as \citet{Trowland_13} found that at low redshift, low mass halos ( $\sim$$10^{11.6}$ to $10^{12.9}$ $h^{-1}$ \(M_\odot\)) tend to be aligned to their filaments whereas high mass halo spins ( $\sim$ $10^{11.6}$ to $10^{13.4}$ $h^{-1}$ \(M_\odot\)) tend to be orthogonal in their alignment. This alignment with the cosmic web is reaffirmed by many works \citep{Zhang_09,Libeskind_12,Dubois_14,Calvo_14,Kang_15,Wang_17,Veena_18} 
+
+\citet{Bond_96}  codis et al. 2012; pichon et al. 2015 tell the story of how the spin evolution of halos is part in parcel of the pancaking effect whereby the fastest collapsing axis e3 causes mergers and accretion along this axis and explaining the alignments found. The horizon simulations \citep{Dubois_14,Welker_14} also show evidence of bulk flow as does \citep{Trowland_13} which explains the spin flip of high mass halos by undergoing major mergers, whereas low mass halos being less likely to undergo mergers retain their parallel spin to the slowest collapsing axis e2
+
+These alignments have not only been found in simulation but also in observation \citep{Jones_10}. \citet{Pen_00} also shows tentative alignment in spirals. Direct measurements of spin is also being done with Integrated Field units (IFU), such surveys as (SAMI; Figure out whether there are publications to show spin alignments from SAMI, I can't find any sources, but perhaps I shall email Scott to make sure) Thus DM halo spin could be a useful tool to probe cosmologies as it would have imprinted upon it the memory of the tidal field which could also be compared with observations 
+
+Lambda-CDM model includes a significant amount of the 'stuff' we have yet to understand the nature or characteristics of,which we dub the dark sector,comprised of two slices, that is a vacuum energy (acting as an antigravity) representing $\sim$70\% of the energy density, this is simply a constant within the model which is responsible for the expansion of the universe. The second slice of dark sector is known as cold dark matter, constituting around $\sim$25\% of the energy density, this is non-relativistic and only interacts via the gravitational force. 
+This model does exceptionally well to predict large-scale observations such as CMB \citep{Bennett_13,Plank_14b,Plank_16} (EA paper: how does the CMB actually verify the accuracy of Lambda-CDM??), features in the large scale structure (EA paper), BAO (EA paper), weak lensing (EA paper) (REFER TO 2 OF THESE PREDICTIONS OF LAMBDACDM IN DETAIL)
+Despite all of its success, Lambda-CDM suffers from various observational inaccuracies as well as conceptual shortfalls, which has tended to fork the research for the dark sector in two areas, the first being to search for alternatives to the dark sector. There are active fields of research which hunt for dark matter particles, such as WIMPS, or explain away dark matter in the form of MACHOS \citep{Alcock_00} or MOND \citep{Milgrom_15}, and other Dark Matter and Dark energy alternatives \citep[e.g][]{Mannheim_06}. The remaining prong of research posits various non-standard cosmologies with distinct characteristics inferred by Lambda-CDM of the dark sector such as a cosmological constant and non-relativistic Dark Matter. 
+This includes Warm Dark Matter, which poses to alleviate the Missing-Satellite problem, where ($\Lambda$CDM) produces too many satellite around central galaxies. although some have proposed that this is not an issue of the standard cosmological model but rather it is to do with the limitations of Dark matter simulations \citep{Wetzel_16} or other feedback \citep[e.g][]{Bullock_00}. Although hydrodynamical simulations have also been criticized for their poor represenations (Ask Geraint about details and references which research this issue)
+Another is a quintessence model which poses to alleviate the \textit{fine-tuning} of the initial value for vacuum energy density.
+(during statements for the largest issues of ($\Lambda$CDM), introduce posited non-standard cosmos in order to alleviate issues)
+A conceptual problem with ($\Lambda$CDM) is the coincidence problem:  the values of energy densities of DM and DE are similar at present day, which seems quite unlikely given the age of the unviverse, thus perhaps there may be some inter-dependance within the dark sector which alleviates the otherwise unlikely coincidence. 
+
+\section{Non-Standard Cosmological Models}
+The cosmological models to be compared tweak the dark sector of the standard model, specifically, Dark Matter in the form of Warm Dark Matter and Dark Energy in the form of Uncoupled Quintessence. 
+
+\subsection{Uncoupled Quintessence  (\qcdm)}
+The general form of the Langrangian which describes the scalar field of \qcdm model
+\begin{ceqn}
+\begin{equation}
+L=\int d^{4}x\sqrt[]{-g}\big(-\frac{1}{2}\partial_{\mu}\partial^{\mu}\phi+V(\phi)+m(\phi)\psi_{m}\bar{\psi}_{m}\big)
+\end{equation}
+\end{ceqn}
+includes a kinetic term, potential term $V(\phi)$ and an interaction term $(\psi_{m})$ with Dark Matter.
+
+The \qcdm model includes no direct interaction between Dark Matter and the quintessence field, thus $m(\phi)=m_{0}$. But Dark Energy - usually represented by a cosmological constant $\lambda$ - is replaced with a time-dependent, evolving scalar field whereby regions of the universe have the opportunity to expand independently, which alleviates the cosmological constant problem \citep{Joyce_15}.
+\begin{ceqn}
+\begin{equation}
+V(\phi)=V_{0}\phi^{-\alpha}\label{rp}
+\end{equation}
+\end{ceqn}
+As for the potential term $V(\phi)$, this cosmology uses the Ratra-Peebles Potential  \citep{Ratra_88},where $V_{0}$ and $\alpha$ are constants which are fit through observational data, and $\phi$ is in units of Plank mass. This potential term is a contrived field potential such that at late times the quintessence field dominates the energy budget of the universe, and at early times it 'tracks' the energy density of matter and radiation akin to observations \citep{Joyce_15}.
+
+\subsection{Warm Dark Matter  (WDM)} 
+The $\Lambda$CDM is extremely successful on large scales, thus WDM aims to merely modify the $\Lambda$CDM model in a effort to damp small-scale structure of the universe. WDM features Dark Matter particles which move at relativistic velocities, increasing the length of the free-streaming of particles, which will smooth out over-densities and suppress structure formation at scales smaller than the co-moving scale\citep{Bode_01}.
+The free-streaming limit of the WDM particle has been confined via observations of the Lyman-alpha forest, to a lower limit mass $m_{WDM}\gtrapprox$ 3.3KeV. \citep{Viel_13} Despite this lower limit, the mass we assign to our WDM model has particle energy = 2keV to exaggerate the cosmological effects. INCLUDE DETAILS ABOUT SCALE OF STRUCURE FORMATION AS PER ANDREWS PAPER  
+
+\section{Methodology}\label{SiriusBlack}
+
+% Example table
+\begin{table}
+	\centering
+	\caption{Cosmological parameters for reference cosmology ($\Lambda$CDM) as well as WMD \& \qcdm}
+	\label{tab:1}
+	\begin{tabular}{lccr} % four columns, alignment for each
+		\hline
+		Model & $\Omega_{m}$ & $\Omega_{b}$ & $\sigma_{g}$  \\
+		\hline
+		$\Lambda$CDM(ref.) & 0.3175 & 0.049 & 0.83\\
+		WDM & $512^{3}$ & 8.16$\times$$10^{10}$ & 8 \\
+		\qcdm & $512^{3}$ & 8.16$\times$$10^{10}$ & 9 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{\textit{N}-Body Simulations}
+Following \citep{Elahi_15} We produced three separate simulations with the aforementioned cosmological models. The cosmological parameters for all simulations are (h,$\Omega_{b}$,$\Omega_{g}$,$\sigma_{g}$)=0.67,0.3175,0.049,0.83, making sure all cosmologies are aligned with z=0, $\Lambda$CDM Plank data \citep{Plank_14b,Plank_16}. The WDM model  simulations used to do this research are Pascal’s Dark matter only simulations run with the Gadget code.(incl. reference, and summarize how these simulations were run including which code are they based upon etc. then state ‘for more information, see Elahi et al.) which are DM-only simulations of 500Mpch for all cosmologies that will be compared during this study. The number of particles are $512^{3}$ where the particle mass is 1010Msol table~\ref{tab:1}
+
+\subsection{Quantifying the Large-Scale Structure}
+
+The snapshots of the simulation particles at z=0 are used to generate a density field: A density field is required in order to classify the LSS and attain the LSS axes, thus we utilize  the Delaunay Tessellation Field Estimator (DTFE)  in order to generate a suitable density field. 
+The simplest technique to generate a density field from a snapshot of particles is via the binning method: that is breaking up the simulation box space into a 3 dimensional grid in which to bin each particle and prescribe a value in each voxel relative to its mass.
+
+Alas, this method of density field calculation leads to unphysical discontinuities and shot noise, which the DTFE method alleviates.
+DTFE method is an open source code, c++ code \citep{Shaap_00,Weygaert_09,Cautun_11}. It is an adaptive method of density interpolation in that it seeks out the over-densities at the maximum possible resolution. The way it functions is as follows;
+
+1. Firstly, it creates Delaunay tetrahedra using the particle distribution, each tetrahedra connects 4 particles such that a circumscribing sphere around this tetrahedra will not intersect any other particles. 
+
+2. Then, Voronoi cells are created from the tetrahedra, in which the density is then interpolated as a continuous field by using the volume of the cell along with the mass of each particle at its vertices. The cells vary in density linearly along the cell.
+\begin{ceqn}
+\begin{equation}
+\textbf{\textit{H}}_{\alpha \beta}=\frac{\partial^{2}\rho_{s}(\textbf{x})}{\partial x_{\alpha}\partial x_{\beta}}\label{hess}
+\end{equation}
+\end{ceqn}
+The density field can then be processed through what is known as the Hessian Method in order to classify the Large-scale structure. Analytically, the Hessian Matrix can be attained by taking the second derivative of the smoothed density field in every direction for each voxel and ending up with a 5th-order tensor. This is not unlike the quadratic whereby the second derivative is taken in order to find the maxima/minima of the curve.
+Firstly, smoothing the DTFE field is paramount in order to acquire a continuous representation of the simulation and to avoid mis-classification of the Large-Scale structure. We convolve the density field with a normal distribution kernel via the convolution theorem. The convolution of two functions $(f\ast g)$ is the inverse Fourier transform of the multiplication of f and g within Fourier space.
+\begin{ceqn}
+\begin{equation}
+\rho_{s}(\textbf{x})=\mathcal{F}^{-1}\Big\{\mathcal{F}(G_{s})\cdot \mathcal{F}(\rho(y))\Big\} 
+\end{equation}
+\end{ceqn}
+where $\rho(y)$ is the raw density field from DTFE and resulting from the convolution is $\rho_{s}(\textbf{x})$ the smoothed field with smoothing scale s Mpc/h from the Gaussian $G_{s}$
+\begin{ceqn}
+\begin{equation}
+G_{s}=\frac{1}{(2\pi\sigma^{2}_s)^{3/2} }e^{\Big(-\frac{(y-x)^{2}}{2\sigma^{2}_{s}}\Big)}
+\end{equation}
+\end{ceqn}
+To retrieve the Hessian matrix from the smoothed density field, take the 2nd partial derivative of the Discrete Fourier Transform (DFT) of the smoothed density field:
+\begin{ceqn}
+\begin{equation}
+\frac{\partial^{2} (F_{m})}{\partial n_{\alpha} \partial n_{\beta}}=\frac{-4\pi^{2}m^{2}}{N^{2}}\sum_{n=0}^{N-1}\rho_{s(n)}(\textbf{x})e^{-2\pi i(nm/N)} 
+\end{equation}
+\end{ceqn}
+for n=0,1,2...n-1 is the sample of points and N=0,1,2...N-1 is the frequency. The wavenumber $k=\frac{-4\pi^{2}m^{2}}{N^{2}}$ is a constant in this case which is multiplied to the smoothed density field in all dimensions (x,y,z) in Fourier space.
+\begin{ceqn}
+\begin{equation}
+\textbf{\textit{H}}_{\alpha \beta}=\mathcal{F}^{-1}\Big\{k\cdot F_{m}\Big\}
+\end{equation}
+\end{ceqn}
+There are 6 unique components to produce the 9 elements of the Hessian of equation \ref{hess}, where $\alpha$,$\beta$=x,y,z. It is of great importance that the Hessian matrix is formed within Fourier space in order to avoid numerical effects and inaccurate filament axes.
+
+\subsection{Alignment of halo spin}
+
+Taking the eigenpairs of the $4^{th}$ order tensor which results from applying the Hessian method to each voxel of the density field allows us characterize each voxel within the field as either a:
+\\
+\\
+\textbf{Cluster} $\lambda_{1}$<0, $\lambda_{2}$<0, $\lambda_{3}$<0
+\\
+\textbf{Filament} $\lambda_{1}$<0, $\lambda_{2}$<0, $\lambda_{3}$>0
+\\
+\textbf{Sheet} $\lambda_{1}$<0, $\lambda_{2}$>0, $\lambda_{3}$>0
+\\
+\textbf{Void} $\lambda_{1}$>0, $\lambda_{2}$>0, $\lambda_{3}$>0
+\\
+
+where each voxel features $\lambda_{1}$,$\lambda_{2}$,$\lambda_{3}$ and the corresponding eigenvectors $\textbf{e}_{1}$,$\textbf{e}_{2}$,$\textbf{e}_{3}$ represent the directions associated with their eigenvalues. As the eigenvalues are ordered by size, the smallest eigenvalue corresponds with $\textbf{e}_{3}$  which itself represents the slowest collapsing axes, thus will be used to represent the filaments axes direction thereafter.
+
+The simulations produce snapshots which are then used to feed into VELOCIraptor, a Dark Matter Halo classifier (A.K.A STructure Finder) \citep{Elahi_11}. VELOCIraptor is a sub(halo) finder which works in a two-step process:
+1. Halos are first identified using a  3DFoF algorithm and artificial  particle bridges are cut off via a 6DFoF algorithm, as well through the velocity dispersion of the FoF group.
+2.Then follows the convention of treating smaller objects as sub-halos and larger objects as host halos. 
+A linking length of 0.1 is used
+
+Only halos classified with more than 100 particles or more are taken into account during this study as halos spin measurements are more reliable at this threshold. 
+\begin{ceqn}
+\begin{equation}
+\textbf{J}=\sum_{i=0}^{N}\textbf{r}_i\times m_i\textbf{v}_i \label{AM}
+\end{equation}
+\end{ceqn}
+The spin of each halo is calculated by taking all the particles involved and the cross-product is taken between the radius from halo center to particle center and the mass multiplied by the velocity of the particle, then sum up all of those for each particle within a halo.
+\begin{ceqn}
+\begin{equation}
+cos(\theta)=\bigg|\frac{\textbf{J}\cdot \textbf{e}_{3}}{|\textbf{J}| |\textbf{e}_{3}|}\bigg|\label{dotprod}
+\end{equation}
+\end{ceqn}
+Given the spin of halos and the axes of the LSS we take the dot product of the unit vector of the spin \textbf{J} with the LSS axes unit vector $\textbf{e}_{3}$.
+Since all we require is the alignment, we take the absolute value of the dot products thus we are left with the alignment from 0 to 90 degrees. 
+
+THINK ABOUT WHETHER TO FIT CORRELATIONS TO MODEL OR USE MEDIAN \& BOOTSTRAP RESAMPLING
+\subsubsection{Model Fitting} 
+\begin{ceqn}
+\begin{equation}
+\textit{P}(cos\theta)=(1-c)\sqrt{1+\frac{c}{2}}\Big[1-c\Big(1-\frac{3}{2}cos^{2}\theta\Big)\Big]^{-3/2} \label{mod}
+\end{equation}
+\end{ceqn}
+Equation \ref{mod} is the model which was derived by \citet{Lee_11}, is used to fit to the distribution of the alignment between halo spin and the minor axis of the tidal field, that is the filament axis. The model is a good indication to show the strength of alignment (based on the correlation coefficient c and whether it aligns with the theory of TTT in that it is predicted spin shall be parallel aligned (thus the correlation coefficient shall be negative) to the tidal field. but as introduced, the spin may also become orthogonal, especially of high mass halos, due to mergers and accretion and perhaps a later turn around before the halos becomes virialized.
+
+The error is calculated via MCMC? The grid method seems fine so this is probably not needed since the model fitting is too simple.
+\subsubsection{Median Method}
+The more popular method in portraying the alignment signals is via taking the mean/median of the dot product values for each mass bin, and calculating the error of the mean/median using Bootstrap re-sampling. Although this method is more popular, this study will fit to the model as it gives a good indication of the strength of alignment but also because it gives a good indication of how the results compare to TTT.
+
+There are many techniques in comparing two different signals, including cross-correlating using the auto-correlation algorithm, even taking the residuals can be a satisfactory approach to compare two alignment signals.
+
+\section{Results}\label{SiriusBlack}
+ 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5.png}
+\label{cor_fig} 
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5_cde0.png}\label{cor_fig_cde0} 
+
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5_wdm2.png}\label{cor_fig_wdm2} 
+\caption{PRELIMINARY: The top plot shows the strength of alignment as measured via the correlation coefficient from fitting equation \ref{mod} using mcmc. for $\Lambda$CDM. Middle plot shows the same but for \qcdm and the bottom plot shows for WDM}
+\end{figure}
+Figure 1 shows that that there is minor differences between alignment signals for each of the cosmologies considered. The slight dip within the second mass bin from the left side for the non-standard cosmologies may be worth further pursuit although they both lie within the error range of \citet{Trowland_13} signal. We also include these correlations for 1,2 and 5 Mpc/h
+
+\section{Discussion}\label{Discussion}
+
+\section{Conclusion}\label{Conclusion}
+
+\bibliographystyle{mnras}
+\bibliography{biblio} 
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
