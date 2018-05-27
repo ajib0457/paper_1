@@ -1,0 +1,281 @@
+% mnras_template.tex 
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[fleqn,usenatbib]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[Paper summaries (research related)]{Papers summaries(research related)}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[K. T. Smith et al.]{
+Keith T. Smith,$^{1}$\thanks{E-mail: mn@ras.org.uk (KTS)}
+A. N. Other,$^{2}$
+Third Author$^{2,3}$
+and Fourth Author$^{3}$
+\\
+% List of institutions
+$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK\\
+$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2015}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+This document will be used to record the papers I read, and it will include their citations as well as a description and discussion of their findings.
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+hello
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+
+
+\section{\citet{Veena_18}}
+ The same tidal field which forms and shapes the cosmic web is the same which initiates the spin of collapsing halos
+
+\section{\citet{Elahi_14}}
+This paper discusses the cluster formations within a WDM universe. They find that above the suppression scale of WDM, on the scales of galaxy clusters, there are marked differences between Lambda-CDM and WDM universes, in that halos tend in WDM cosmology tend to gain mass at much faster rates than their standard model counterparts. In addition, WDM halos undergo significantly less mergers, although the overall major mergers happen with similar frequency. 
+
+\section{\citet{Elahi_15}}
+This paper compares cosmologies, and finds that the coupled cosmology, where DM decays into DE, halos 'appear' remarkably similar. It is also found that coupled models produce higher statistical significance of satellite arrangements... however in all models, these arrangements are 'dynamically' unstable,meaning their velocities indicate they will disperse within ~200Myrs. figure 9 compares the spin parameters for each cosmology and finds no systematic differences in the distribution of the spin parameters for all halos in each simulation. Alignments of satellites with major axes of central halos all show a weak correlation of alignment, although there are no differences between the cosmologies. 
+
+\section{\citet{Adermann_17}}
+This paper uses void properties as a probe to compare non-standard cosmologies. It is found at z=0, the volume distribution varies between the reference $\lambda CDM$ cosmology and the CDE cosmology, the author suggesting that this could be an observable statistic in observations. There is no difference found between the cosmologies in terms of the void shapes i.e their ellipticity or prolateness for z=0-1 at least. Although what is distinct between all cosmologies is the distributions of average void densities, being emptiest in quintessence model and densest in standard model.
+Within the introduction it is argued that cosmic voids are not only recently gained popularity in probing cosmologies but are more suited to do so as they are little affected by non-linear physics (other than gravity), and further stating that over-dense regions such as sheets, filaments and clusters are susceptible to non-linear physics erasing the cosmological signatures which could serve to distinguish between cosmologies. "Our simulations show that changes in expansion history and the presence of coupling in the dark sector alter the void size distribution at z = 0.0, as well as the average density of voids across z = 0.0–1.0. However, these differences in dark sector physics do not alter the void ellipticity or prolateness distribution at any redshift, nor do they affect the void size distribution at z = 0.6–1.0." \citep{Adermann_17} \textbf{importantly, This paper does a comparative study on hydro simulations, that is dark matter and gas particles.}
+
+\section{\citet{Carlesi_14a}}
+
+\section{\citet{Carlesi_14b}}
+
+\section{\citet{Schneider_12}}
+
+\section{\citet{Smith_11}}
+This paper compares the halo mass function (among many other things) between $\Lambda CDM$ and WDM model. They find that relative to CDM, WDM halo mass function is suppressed by 50$\%$ for masses ~ 100 times the free-streaming mass scale. In this work, the WDM cosmology is to contain a particle which is lighter than the CDM counterpart, and retain some 'stochastic primordial thermal velocity'. The explanation this paper gives of WDM is that at early times WDM is relativistic, and is able to free-stream out of perturbations such that when the universe expands and cools, structure on small scales is suppressed and WDM effectively acts like CDM at recent times.
+
+\section{\citet{Watts_17}}
+This paper compares the standard model with a quintessence model and WDM model, all are DM only . They find that there are no differences in the topology between the $\lambda CDM$ and the WDM model and their structure formation topologies are identical. Although, the quintessence cosmology is found to be very different in there are higher cluster abundances and lower void abundances, thus higher amount of these LSS. It is suspected that DM and gas simulations may give different results or more pronounced differences.
+
+\section{\citet{Shafer_09}}
+This paper details the influence of angular momentum of galaxies on their shape and in turn on gravitational lensing, since I suspect that cosmic shear can have a negative influence on observations.
+
+\section{\citet{Donghia_08}}
+THis paper is about how halos gain and lose their spins, and it shows that relaxed halos which are in equilibrium are less likely to be affected by merging history? In that they find that there is no correlation between spin and merging history. Whereas non-equilibrium halos have higher spin and the virialisation process leads to a net decrease in the spin parameter. Interestingly, the introduction of this paper writes about a study\citep{Vitvitska_02} which was conducted for some DM halo progenitors, and finds that the spin parameter increases abruptly during major mergers and decreases gradually during minor mergers, which is peculiar since later major mergers are thought to form elliptical galaxies, which have lower spin parameter than spirals. 
+THe top panel of figure 1 shows there is no real correlation between the spin parameter of 'relaxed' halos. whereas 'unrelaxed' systems have higher than average spin parameters, they attribute this to the process of virialization, where this process decreases the net spin paramter. THey go on to claim that during virialization, due to material redistribution of mass and spin, this is the reason why there is a different spin parameter as a function of time or virialization. 
+
+\section{\citet{Trowland_13}}
+
+\subsection{Relevant intro references}
+\begin{itemize}
+\item \citet{White84}
+\item Hoyle 1949
+\item \citet{Peebles_69}
+\item \citet{Lee_pen_00}
+\item \citet{Porciani_02}
+\item \citet{Lee_Erdogdu_07}
+\item \citet{Bett_Frenk_12}
+\item \citet{Gardner_01}
+\item \citet{Vitvitska02}
+\item \citet{Maller_02}
+\item \citet{Brunino_07}
+\item \citet{Cuesta_08}
+\item \citet{Faltenbacher_02}
+\item \citet{Calvo_07b}
+\item \citet{Hahn_07b}
+\item \citet{Zhang_09}
+\item \citet{Jones_10}
+\item \citet{Hahn_07a}
+\item \citet{Heavens_00}
+\item \citet{Bailin_05}
+\item \citet{Hatton_01}
+\item \citet{Pen_00}
+\item \citet{Slosar_09}
+\item \citet{Lee_11}
+\item \citet{Lemson_99}
+\item \citet{sodi_08}
+\item \citet{Knebe_08}
+\item \citet{Cuartas_11}
+\end{itemize}
+
+\subsection{Summary}
+This paper concludes that at high redshifts (about z=3) spin vectors of DM halos tend to be orthogonally aligned to their filaments, and as redshift decreases, low mass halos become weakly parallel aligned whereas high mass halo remain orthogonal to filament axes. The parallel alignment of low mass halos was grounds for suggesting that TTT is not the soul mechanism for build up of halo spin.
+\textbf{This should be confirmed} "An interpretation of this is that at early times all halo
+spins were aligned orthogonal to filaments, as TTT predicts"
+They also find evidence for bulk flows, that is matter is moving towards 'common attractors', and also that filaments are growing over time concluded by the fact that they find at large smoothing scales and low redshift, halos have best aligned spins and bulk motions, while at high redshift it is small scale filaments which have the best aligned halos.
+Only at separations of r=0.3Mpc or less was there a mutual alignment between neighboring halos. Also the spin parameter was tracked and at high redshift the spin parameter follows a power law relationship with halos mass, but is independent at z=0. 
+From this paper "The second eigenvector of the tidal field points in a direction orthogonal to the filament (the minor axis of the tidal field is the axis of the filament) and so we expect that halo spin should point in a direction orthogonal to the axis of the filament." and this fits in to the results in that
+
+
+\section{\citet{White84}}
+From \citet{Trowland_13} White was referenced for attributing the fact that proto-halo spin can be predicted analytically, although this is limited to linear structure formation.
+This paper concludes that from results of simulations and 'contentions' galaxies and their materials seemed to have gained their spin from linear structure formation via tidal torquing in the early universe, thus the final spin of galaxies can be predicted to an order of magnitude analytically, but quantitative distribution of spin can only be attained by \textit{N}-body simulations. \citet{Bett_Frenk_12} refer to this paper when stating that non-linear physics break down this theory of tidal torquing being the sole mechanism for spin acquisition and evolution.
+
+\section{\citet{Peebles_69}}
+\citet{Trowland_13} references this paper when stating that TTT is a mechanism whereby galaxies attain their spin.
+This paper argues that on the basis of the theory, it can predict the magnitude of spin for galaxies.
+Firstly, they speculate that perhaps when the proto-galaxy were collapsing, the heat generated would blow out of the proto-galaxy asymmetrically thus transferring angular momentum. Although during this paper they assert that no such thing happened and gravity is the only force involved in spin acquirement. 
+They estimate the mean value of the spin magnitude of galaxies, but state that there will be a wide variation given that galaxies vary widely. 
+This paper also goes through calculations from perturbation theory from the outset as proto-galaxies are very close, then as proto-galaxies separate, they are considered as point masses and the quadrapole moment of the galaxy in question is focused upon whereas the other galaxies are seen as point masses and the average of those forces are seen as the tidal field. \textbf{it is recommended that I go through these calculations in detail along with Trowland's thesis and \citet{Shafer_09} calculations} 
+
+\section{\citet{Vitvitska02}}
+\subsection{Relevant intro references}
+\begin{itemize}
+\item \citet{Sugerman_00}
+\item \citet{Porciani_02}
+\end{itemize}
+
+\subsection{paper summary}
+This paper run \textit{N}-body sims as well as a random-walk model. Results claim that spin parameter is affected by the merger type in that halos which undergo a major merger increase their spin parameter (this seems peculiar since major mergers tend to form ellipticals which would have a lower spin parameter) and minor mergers decrease the spin parameter of halos.
+Three simulations are used of various sizes and mass resolution, but with similar cosmological parameters as far as I can gather.
+figure 1 seems intriguing but also very suspicious since only 3 halos are simulated for the results. It shows that the spin parameter is highly erratic at high redshifts and seems to attenuate at low redshift and seems to stabilize... this is correlated with the mass accumulation of the halos, which is rapid at high redshift, but the authors state that major mergers are responsible for the large jumps in spin parameter. Agreeing with intuition, the halos which have a an low initial spin parameter are conducive to large increases in spin parameter no matter the size, though intermediate initial spin halos are only affected by major mergers and for large initial spin halos will accrete matter which will only serve to decrease their spin parameter.
+
+\section{\citet{Lee_pen_00}}
+
+This study was references by \citet{Trowland_13} in order to state the fact that the spin of halos holds some memory of the tidal field in which the spin was attained.
+Within the intro, it states " gravitational torquing occurs when the inertia tensor of the proto-halo is misaligned with the gravitational shear tensor". It was also stated within the introduction that \citet{Peebles_69} suggested that perturbation theory only predicts tidal torquing in the second order, but this was for the study of a spherically symmetric proto-halo with no quadrapole. \citet{Lee_pen_00} suggests having variations of proto-galaxy shapes, not just spherically symmetric shapes, citing \citet{White84} among other. THe concolusion of this paper as understood is that non-linear collapse effects only reduce the linear spin-shear correlation by a factor of 2. I take this as non-linear effects only reduce the tidal torquing effects by a factor of 2.
+
+\section{\citet{Porciani_02}}
+This study was referenced by \citet{Trowland_13} in the same breath as \citet{Lee_pen_00}.
+Using N-body simulations, this study finds that TTT correctly predics the magnitude of proto-halo "spin amplitudes"
+Results are seen in figure 7 where at z=50, the linear regime, it seems that the direction of proto-halo spins are tucked towards 0 degrees, which shows that the alignment of these proto-halos from simulations match TTT model predictions of spin directions, although a reasonable spread it seen (part of which is justified since there is a truncation in the taylor expansion of the potential) which puts TTT into question.
+THey conclude that non-linear evolution causes a mean error for TTT prediction of spin direction by 50 degrees. It seems that this study has been disproved since it is presented by introduction from \citet{Lee_Erdogdu_07} as to say they "investigated the correlations between their spin axes and the local tidal tensors and found that the spins of the simulated galactic halos at the present epoch completely lost their memory of the intrinsic alignments with the initial tidal tensors."
+
+\section{\citet{Lee_Erdogdu_07}}\label{Lee_Erdogdu_07}
+This study was referenced by \citet{Trowland_13} in the same breath as \citet{Lee_pen_00}.
+With the 2MASS redshift survey, they construct the density field, and in turn the tidal field in order to investigate the alignment of galaxy spin directions with the tidal field. 
+Importantly, this paper stipulates "The seeds of the galaxies observed in the present universe are the tiny-amplitude inhomogeneities of the primordial density field which are presumably generated by the quantum fluctuations during the inflation" and cites \citet{Guth_82}
+THey further add that the amplitudes of the density inhomogeneities grew due to gravitational instability after recombination to then form proto-galaxies within the over-dense regions. Assuming the proto-galaxies were not spherically symmetric, and thus have a quadrapole, they would acquire their spins from the surrounding tidal field. This continued until turnaround (that is when the proto-galaxy got separated from the tidal field, isolated such that it will not be influenced by the tidal shear) and if the spin was unaffected since, then the spin orientation should match that of the tidal field which induced it upon each proto-galaxay. But, the non-linear phase of evolution of these proto-galaxies, as well as virialization, may have erased the initial spin from the tidal field.
+Spin-shear alignment is the same is spin-filament alignment?? Yes it is.
+This paper derives from TTT the equation 12 from \citet{Trowland_13} which in turn was developed by \citet{Lee_05} at least the progenitor equation which leads to equation 5 in this paper. 
+In order to derive the model, firstly from linear TTT we can conclude that the spin of a proto-galaxy is as follows:
+\begin{equation}
+L_{i}=\epsilon_{ijk}T_{jl}I_{lk} \label{ttt}
+\end{equation}
+where $L_{i}$ is the spin vector of the proto-galaxy, $T_{jl}$ is the initial shear tensor (which I believe describes the tidal field) which represents the tidal torques from the surrounding matter and $I_{lk}$ being the inertia momentum tensor of the proto-galaxy. In the principal axis frame of $T_{ij}$, equation \ref{ttt} is written as:
+\begin{equation}
+L_{1}=(\lambda_{2}-\lambda_{3})I_{23}\\
+L_{2}=(\lambda_{3}-\lambda_{1})I_{31}\\ \label{prin}
+L_{3}=(\lambda_{1}-\lambda_{2})I_{12}
+\end{equation}
+where $\lambda_{1}$,$\lambda_{2}$ and $\lambda_{3}$ are the 3 eigenvalues of $T_{jl}$ and $\lambda_{1} \geq \lambda_{2} \geq\lambda_{3}$, also $I_{23}$,$I_{31}$ and $I_{12}$ are the off-diagonal components of $I_{lk}$ in the principal axis frame of $T_{jl}$. Equation \ref{prin} suggests that $L_{2}$ is the largest on average since $(\lambda_{3}-\lambda_{1})$ is the greatest out of the three thus making it the preferential alignment of proto-galaxy spins. From the correlations found by many works, theres somewhat of an orthogonal alignment between the corresponding eigenvector for $\lambda_{2}$ and the spins of galaxies, although for low mass halos, there is a parallel alignment, which contradicts TTT. \citet{Lee_pen_00,Lee_Pen_01} have derived an equation which models the alignments between the spin of galaxies at the present epoch and the intermediate principal axis associated with $\lambda_{2}$:
+\begin{equation}
+\big<L_{i}L_{j}|\hat{\textbf{T}} \big>=\frac{1+c}{3}\delta_{ij}-c\hat{T}_{ik}\hat{T}_{jk}
+\end{equation}
+\textbf{I will need to revisit this to understand it thoroughly so that I may include it within my thesis and papers}
+The study of this paper focuses on using the galaxies from the tully-fisher catalog of galaxies, focusing on spiral galaxies of certain types, using their axial ratio (a/b) and position angle (PA) to infer the spin orientation. but doing this for all types of spirals would cause systematic errors since the bulge varies for various types of galaxies, thus care must be taken to ensure that the types of galaxies considered are known and accounted for.
+Figure 2 within this paper shows that the indeterminate axis is actually the axes which galaxies in the tully-fisher catalog are parallel aligned to, see middle plot of the 3.
+The \textbf{Kolmogorov-Smirnov} statistic is how this paper proves that there is a 99.9$\%$ confidence that the null hypothesis that there is no spin-shear correlation is rejected. The correlation (between the intermediate axis of the tidal field and the spin of galaxies) they find is weakly orthogonal at $\bar{c}=0.084\pm 0.014$ and figure 3 shows the dotted distribution representing observation and the solid lines representing the analytic solution, which seem to match. THe correlations c values differ slightly to the morphology type of the galaxy, early type spirals having the strongest orthogonal alignment.
+\textbf{Note}: \citet{Trowland_13} suggests that this alignment of galaxies will correspond to a preferentially orthogonal alignment to filaments since $\lambda_{2}$ which corresponds to the e2 eigenvector of the tidal field in the context of taking the eigenpairs of the hessian of the density field, thus is will correspond with the minor axis of the filament and thus be orthogonal to the filament. According to \citet{Wang_17} e3 is a good representation of LSS thus perhaps spin shall be orthogonal to this for all LSS type but probably not at all epochs?
+
+\section{\citet{Bett_Frenk_12}}
+This paper was included in \citet{Trowland_13} in stating that spin flips occur during minor and major mergers as well as close halo flybys.
+This paper focuses on spin flips for milky way mass galaxies within simulations. They conclude that major mergers are a great influence on the spin flip, more so than minor mergers. Although, major mergers are quite rare as compared with minor mergers and thus this is the crux of the paper "93 per cent of events with angular change in spin direction of θ > 45 degrees have a fractional mass change $\triangle \mu$ $\leq$ 0.3 which equates to a 50 $\%$ mass change" where $\mu$ is defined as the mass fraction of the halos. 
+
+\section{\citet{Gardner_01}}
+This paper was referenced by \citet{Trowland_13} in order to state that tidal torques may be ignored and only mergers are involved to reproduce the spin magnitude distribution.
+As an important aside, this paper considers the spectral mass index $n_{s}$=0.8, which descirbes the fluctuations of the density distributions at different scales, where $n_{s}$=1 apparently corresponds with fluctuations being equal on all scales. For this study, 6 simulations are used with 3 types of cosmologies: a flat model $\omega_{0}=1$, an open model $\omega_{0}=0.3$ and a 'tilted flat' model $\omega_{0}=1$. for each model, one run is conducted using a spatially uniform grid of particles and the other in a fine grid in a large void. 
+They find that for all of the 6 simulations, the average spin magnitude is higher for merger remnants (where this is defined as larger than 3:1, thus merger remnant is defined by a merger between galaxies of at least a third of each other's mass or more?) than for non-merger remnants.
+The errors in table 1 are confusing since they seem to be so large as compared to viewing the figure 1. Perhaps it is something to do with the log-normal distribution nature of the spin parameter a.k.a spin magnitude. 
+They argue given the lessened dispersion of $\sigma_{\lambda}$ for the merger remnants as compared to the nonmerger remnants this concludes the following: 1. the spin of merger remnants is independent of tidal torques 2. "merging selects for specific environments"
+
+\section{\citet{Maller_02}}
+This paper was referenced in the same breath as \citet{Gardner_01} and \citet{Vitvitska02} by \citet{Trowland_13}.
+The self-proclaimed aim of the paper is to develop a simple recipe of build-up of spin from mass-accretion and merger histories. \textbf{To be continued...}
+
+
+
+
+
+\section{ideas}
+\subsection{why abs(dotproduct)?}
+Why would I take the absolute value of the dot product of the alignments when I am erasing information which could give a more accurate picture of what is going on in terms of the evolution of the spin of halos? Although this will disallow me to fit my dot product to the model outlined in section \ref{Lee_Erdogdu_07} it may give a nuanced picture and reveal something when comparing cosmologies.
+
+\subsection{pancaking $\&$ spin evolution}
+What's weird is no one has put the picture of the pancaking effect with the evolution of spin... perhaps I can go down this path. It seems to be so obvious a story to tell? Then I can compare this evolution picture with nonstandard cosmologies and discuss the details.
+Why wouldn't this work? We won't know why they have different spins, unless of course you can account for it if they have different merger rates since mergers have been studied and less major mergers would show more parallel alignments to intermediate initial shear tensor and that means more orthogonal to filaments? The spin parameter would not be as large from \citet{Gardner_01} has shown.Formation time of halos may change, thus tidal effects will vary since once protohalos reach turnaround they no longer are succumb to tidal torques since they separate from their environment, so if protohalos collapse quicker in the WDM model I would suppose they are less likely to be affected by other physics later on and so should produce pristine signatures representing the cosmic web, the fact that they don't means either the turnaround for alternative cosmologies is the same (which is actually what Bjoern said) or that there is a degeneracy. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{mnras}
+\bibliography{biblio} 
+
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
