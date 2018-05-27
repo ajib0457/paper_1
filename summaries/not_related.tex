@@ -1,0 +1,127 @@
+% mnras_template.tex 
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[fleqn,usenatbib]{mnras}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[paper summaries]{paper summaries (Random paper summaries)}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[K. T. Smith et al.]{
+Keith T. Smith,$^{1}$\thanks{E-mail: mn@ras.org.uk (KTS)}
+A. N. Other,$^{2}$
+Third Author$^{2,3}$
+and Fourth Author$^{3}$
+\\
+% List of institutions
+$^{1}$Royal Astronomical Society, Burlington House, Piccadilly, London W1J 0BQ, UK\\
+$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2015}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+This document will be used to record summaries of papers including note taking of results and implications of research.
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+hello
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+\section{\citet{Chira_18}}
+This paper looks at the Abundance function (AF) and its dependence on the environment. THe AF is similar to the mass function for overall simulation halos for each redshift, although because it is defined within the constraint of a light cone, not the entire simulation thus, it is represented as $N_{af}$ as it looks at halo catalogs with a large spread in redshift. THe AF seems to represent the number of halos as a function of mass. The results, which are poorly understood, seem to conclude that there are differences in the AF as a function of halo isolation, which agrees well with literature. This isolation radius is defined by finding a particular halo of certain mass such as $10^{13} sol$ and finding the neighboring halo of the same mass? This then becomes the definition of the environment, that is the density of the environment.
+
+\section{\citet{Kang_18}}
+In an effort to detect WIMPS, this paper assesses the sensitivity of current and future (projected) WIMP detectors. The analysis is based upon two parameters, the WIMP mass and the WIMP-neutron/proton coupling ratios. Of the 15 assessed WIMP search experiments, 9 provide the 'most constraining bound' of the aforementioned parameters... This paper may attempt to pinpoint either what these experiments believe the ideal parameter space should be in the search for WIMPS
+
+\section{\citet{Giocoli_18}}
+Studies weak gravitational lensing within cosmological simulations whereby they statistically check the signal to noise of lensing between a coupled DM-DE model with the reference Lambda-CDM model. An aside, this paper features an open source non-standard cosmology simulations \href{http://www.marcobaldi.it/web/CoDECS_summary.html}{here}. Another aside, perhaps it may be a good idea to include a plot such as table 1 and figure 2 where they have a slice of all the cosmologies in question and within the table is all their parameters. They have found, using peak statistics, that it is a good measure for cosmic shear, also that using peak stats we can distinguish between a coupled DE model with a lambda-CDM model.
+
+
+\bibliographystyle{mnras}
+\bibliography{biblio} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
