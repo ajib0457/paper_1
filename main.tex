@@ -61,6 +61,7 @@
 \def \kpch{\ h^{-1}{\rm kpc}}
 \def \Gpch{\ h^{-1}{\rm Gpc}}
 \def \lcdm{$\Lambda$CDM}
+\def \lwdm{$\Lambda$WDM}
 \def \qcdm{$\phi$CDM}
 \newcommand{\dedm}[1]{$\phi(\beta_o=#1)$CDM}
 
@@ -88,7 +89,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[\textit{N}-Body studies of non-standard cosmologies]{ \textit{N}-Body studies of non-standard cosmologies: Spin Correlations and Large-Scale Structures }
+\title[\textit{N}-Body Studies of Non-Standard Cosmologies]{ \textit{N}-Body Studies of Non-Standard Cosmologies: Spin Correlations and Large-Scale Structures }
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -116,7 +117,7 @@ Crawley, Western Australia 6009, Australia}
 
 % Abstract of the paper
 \begin{abstract}
-Despite the Standard Cosmological Model's ($\Lambda$CDM) success on the largest of scales, there are conceptual and observational shortfalls on galactic scales which need to be addressed. There are Problems of \textit{fine-tuning} of the initial value for vacuum energy density $\Lambda$, a Dark Energy- Dark Matter \textit{coincidence} problem and the "missing satellite" problem have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies to alleviate such shortfalls. A suitable measure for  cosmological model comparison via \textit{N}-Body simulations is Dark Matter halos' Angular Momentum alignment with Large-scale structure. We cross-correlate these alignments from cosmologies evolved via $N$-body, including a quintessence ($\phi$CDM) and relativistic(Warm) Dark Matter (WDM) cosmology, with the reference cosmology being $\Lambda$CDM.  
+Despite the Standard Cosmological Model's ($\Lambda$CDM) predictive accuracy on the largest scales of the universe, there are conceptual and observational shortfalls on galactic scales which loom large within dark sector cosmology. Problems of \textit{fine-tuning} the vacuum energy density $\Lambda$, a Dark Energy (DE)- Dark Matter (DM) \textit{coincidence} problem and the Missing Satellite problem, have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies in an effort to alleviate such shortfalls. This is a comparative study between a Warm Dark Matter (\lwdm), an uncoupled Quintessence (\qcdm) along with the fiducial \lcdm, conducted using the evolution of Angular Momentum as a probe.  
 
 %This is a simple template for authors to write new MNRAS papers. The abstract should briefly describe the aims, methods, and main results of the paper. It should be a single paragraph not more than 250 words (200 words for Letters). No references should appear in the abstract.
 \end{abstract}
@@ -132,23 +133,45 @@ cosmology: simulations -- cosmology: large-scale structure of the universe -- da
 %%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
-What's known as the 'The baby picture of the universe' - the Cosmic Microwave Background (CMB) - shows an anisotropic temperature distribution within the early universe which is thought to have occurred via quantum fluctuations during the period of Inflation, causing minor inhomogeneities that cascaded post-inflation via the process of gravitational instability into what we see today as knots, filaments, sheets and voids. According to linear theory and the Zel'dovich approximation \citep{Zeldovich_70} evolution of the cosmic web seemed to have begun from over-dense regions which collapsed along their shortest axes into sheets, then sheets to filaments and finally to knots. This large-scale bulk flow provides the tidal field unto which DM halos form and gain their initial spin (spin refers to the halo unit vector direction of Angular Momentum hereafter) and Tidal Torque Theory (TTT) describes the procurement of the initial Angular Momentum of dark matter halos, that is through the influence of the tidal field, which has a great influence on the progenitor before turn-around \citep[Holye 1949][]{Peebles_69,Zeldovich_70}
+\subsection{broad structure formation introduction}
+The Cosmic Microwave Background (CMB) shows an anisotropic temperature distribution within the early universe which is thought to have occurred via quantum fluctuations during the period of Inflation \citep{Guth_82}, causing minor inhomogeneities that cascaded post-inflation through the process of gravitational instability into what we see today as knots, filaments, sheets and voids. According to linear theory and the Zel'dovich approximation \citep{Zeldovich_70} evolution of the cosmic web seemed to have begun from over-dense regions which collapsed along their shortest axes into sheets, then from sheets to filaments and finally into knots. This large-scale bulk flow provides the tidal field unto which DM halos form and gain their initial spin (spin refers to the halo unit vector direction of Angular Momentum hereafter) and Tidal Torque Theory (TTT) describes the procurement of the initial Angular Momentum of dark matter halos, that is through the influence of the tidal field, which has a great influence on the progenitor before turn-around \citep[Holye 1949][]{Peebles_69,Zeldovich_70} 
+It is argued that since the tidal field is the manifestation of the cosmological environment, and this field predominantly, although arguably, is responsible for the acquisition of initial galactic spins, it is conjectured the imprint of cosmology is preserved within the spins of galaxies \citep{Lee_pen_00} and thus may be a suitable probe of cosmology. In contrast, it has been shown that since over-dense regions such as sheets, filaments and clusters are susceptible to non-linear physics, which possibly erases or masks the cosmological signatures that could otherwise serve to distinguish between cosmologies.
 
-Past studies utilizing the spin of galaxies as a probe of cosmology have given insight into cosmological processes such as \citet{Trowland_13} found that at low redshift, low mass halos ( $\sim$$10^{11.6}$ to $10^{12.9}$ $h^{-1}$ \(M_\odot\)) tend to be aligned to their filaments whereas high mass halo spins ( $\sim$ $10^{11.6}$ to $10^{13.4}$ $h^{-1}$ \(M_\odot\)) tend to be orthogonal in their alignment. This alignment with the cosmic web is reaffirmed by many works \citep{Zhang_09,Libeskind_12,Dubois_14,Calvo_14,Kang_15,Wang_17,Veena_18} 
+\subsection{spin research overview}
+\subsubsection{simulations}
+There are numerous studies which investigate the large scale structure (LSS) of \lcdm cosmology by using spin alignment and evolution as a probe. Studies such as \citet{Faltenbacher_02,Calvo_07,Zhang_09} and \citet{Hahn_07} find that there are clear correlation signals between LSS axes and halo spins, which can be linked to the formation of LSS and its influence on the spin and shapes of halos. Specifically, \citet{Zhang_09} find that the spin and shape of halos within filaments of M $\leq$ $10^{13}$ $h^{-1}$ \(M_\odot\) are aligned with the filament axes. Furthermore they find that the alignments are strengthened for halos which are closes to more massive node (cluster) halos. They interpret this as 'transit large-scale environment impact' that is a transit from two-dimensional filaments to three-dimensional clusters.
 
-\citet{Bond_96}  codis et al. 2012; pichon et al. 2015 tell the story of how the spin evolution of halos is part in parcel of the pancaking effect whereby the fastest collapsing axis e3 causes mergers and accretion along this axis and explaining the alignments found. The horizon simulations \citep{Dubois_14,Welker_14} also show evidence of bulk flow as does \citep{Trowland_13} which explains the spin flip of high mass halos by undergoing major mergers, whereas low mass halos being less likely to undergo mergers retain their parallel spin to the slowest collapsing axis e2
+\citet{Trowland_13} conducts a spin evolution study using the Millennium simulations and finds that at low redshift, low mass DM halo spins ( $\sim$$10^{11.6}$ to $10^{12.9}$ $h^{-1}$ \(M_\odot\)) tend to be aligned to their filaments whereas high mass halos ( $\sim$ $10^{12.9}$ to $10^{13.4}$ $h^{-1}$ \(M_\odot\)) tend to be orthogonal in their alignment, suggesting that TTT may not be the sole mechanism for spin acquisition.  
 
-These alignments have not only been found in simulation but also in observation \citep{Jones_10}. \citet{Pen_00} also shows tentative alignment in spirals. Direct measurements of spin is also being done with Integrated Field units (IFU), such surveys as (SAMI; Figure out whether there are publications to show spin alignments from SAMI, I can't find any sources, but perhaps I shall email Scott to make sure) Thus DM halo spin could be a useful tool to probe cosmologies as it would have imprinted upon it the memory of the tidal field which could also be compared with observations 
+The alignment of halo spin with LSS is not exclusive to filamentary structure, but is also seen within sheets and clusters, where there is a general alignment between halo spin and the e2 (initial intermediate tidal tensor) axes, also known as the axes of slowest collapse. \citep{Libeskind_12,Dubois_14,Calvo_14,Kang_15,Wang_17,Veena_18} 
 
-Lambda-CDM model includes a significant amount of the 'stuff' we have yet to understand the nature or characteristics of,which we dub the dark sector,comprised of two slices, that is a vacuum energy (acting as an antigravity) representing $\sim$70\% of the energy density, this is simply a constant within the model which is responsible for the expansion of the universe. The second slice of dark sector is known as cold dark matter, constituting around $\sim$25\% of the energy density, this is non-relativistic and only interacts via the gravitational force. 
-This model does exceptionally well to predict large-scale observations such as CMB \citep{Bennett_13,Plank_14b,Plank_16} (EA paper: how does the CMB actually verify the accuracy of Lambda-CDM??), features in the large scale structure (EA paper), BAO (EA paper), weak lensing (EA paper) (REFER TO 2 OF THESE PREDICTIONS OF LAMBDACDM IN DETAIL)
-Despite all of its success, Lambda-CDM suffers from various observational inaccuracies as well as conceptual shortfalls, which has tended to fork the research for the dark sector in two areas, the first being to search for alternatives to the dark sector. There are active fields of research which hunt for dark matter particles, such as WIMPS, or explain away dark matter in the form of MACHOS \citep{Alcock_00} or MOND \citep{Milgrom_15}, and other Dark Matter and Dark energy alternatives \citep[e.g][]{Mannheim_06}. The remaining prong of research posits various non-standard cosmologies with distinct characteristics inferred by Lambda-CDM of the dark sector such as a cosmological constant and non-relativistic Dark Matter. 
-This includes Warm Dark Matter, which poses to alleviate the Missing-Satellite problem, where ($\Lambda$CDM) produces too many satellite around central galaxies. although some have proposed that this is not an issue of the standard cosmological model but rather it is to do with the limitations of Dark matter simulations \citep{Wetzel_16} or other feedback \citep[e.g][]{Bullock_00}. Although hydrodynamical simulations have also been criticized for their poor represenations (Ask Geraint about details and references which research this issue)
+\citet{Bond_96,Codis_12} pichon et al. 2015 tell the story of how the spin evolution of halos are part in parcel of the pancaking effect whereby the fastest collapsing axis e3 causes mergers and accretion along this axis and explaining the alignments found. The horizon simulations \citep{Dubois_14,Welker_14} also show evidence of bulk flow as does \citep{Trowland_13} which explains the spin flip of high mass halos by undergoing major mergers, whereas low mass halos being less likely to undergo mergers retain their parallel spin to the slowest collapsing axis.
+
+\subsubsection{observations}
+These alignments have not only been found in simulation but also in observation \citep{Jones_10}. \citet{Pen_00} also shows tentative alignment in spirals. 
+\citet{Lee_Erdogdu_07} show that galaxies in the Tully-Fisher catalog are weakly orthogonal with their environment, stating an average correlation coefficient (c) value of$\bar{c}=0.084\pm 0.014$ (where c=0 represents a random alignment) to their LSS with 99.9$\%$ confidence (based on Kolmogorov-Smirnov statistic) that the null hypothesis of no spin-shear correlation is rejected. 
+\\
+Direct measurements of spin are also being conducted with Integrated Field units (IFU), such surveys as SAMI \citep{Croom_12} Thus DM halo spin could be a useful tool to probe the universe and find discrepancies with \lcdm.
+
+\subsection{alternative N-body sims probes of cosmology}
+There have been many studies which compare Non-Standard Cosmologies with various probes. From studies such as \citet{Elahi_14} finds that above the suppression scale, on the scales of galaxy clusters, there are marked differences between $\Lambda CDM$ and WDM. Whereas \citet{Elahi_15} shows little to no difference between $\Lambda CDM$ and the coupled cosmologies. \citet{Adermann_17} finds that there is a potentially observable difference between the volume distribution of voids between $\Lambda CDM$ and the CDE (coupled DM-DE) cosmology. Also, there are differences between the densities of voids for each cosmology, being emptiest in uncoupled quintessence model and densest within $\Lambda CDM$. \citet{Carlesi_14a} finds using hydrodynamical simulations that their  self interacting quintessence model uDE provides a higher concentration of halos within the LSS as compared to their fiducial $\Lambda CDM$ and other cosmologies compared. \citet{Carlesi_14b} find a weak coupling between the spin, triaxiality and virialisation and the cosmology dark sector types. \citet{Smith_11} find that WDM model suppresses the halo mass function by 50$\%$ for masses 100 times the free-streaming mass scale. \citet{Watts_17} finds there are higher cluster abundances and lower void abundances within the quintessence cosmology with respect to $\Lambda CDM$. Also speculates that DM with gas simulations may give more pronounced differences in the discrepancies.
+
+\subsection{introduction of $\Lambda$CDM and its shortfalls}
+
+The \lcdm model does exceptionally well to predict large-scale observations such as the anisotropies in the Cosmic Microwave Background (CMB) \citep{Bennett_13,Plank_14b,Plank_16}, features in the LSS \citep{Abazajian_09}, Baryonic Acoustic Oscillations (BAO) \citep{Beutler_11} and weak lensing \citep{Kilbinger_13}.
+Despite all of its success, \lcdm suffers from various observational inaccuracies as well as conceptual shortfalls regarding the dark sector physics (DM and DE). although constrains from observations have supported the CDM scenario \citep{Bertone_05,Petraki_13} and having well-motivated candidates from particle physics over more energetic dark matter such as Hot Dark Matter. DE in the form of a cosmological constant seems to work well to predict the late time accelerated expansion of the universe \citep{Suzuki_12}
+
+\subsection{approaches to dark sector research}
+There are active fields of research which hunt for dark matter particles, such as Weakly-Interacting Massive Particles (WIMPS), or explain away dark matter in the form of Massive Compact halo Objects (MACHOS) \citep{Alcock_00} or Modified Newtonian Dynamics (MOND) \citep{Milgrom_15}, and other Dark Matter and Dark energy alternatives \citep[e.g][]{Mannheim_06}. The remaining prong of research posits various non-standard cosmologies with distinct characteristics inferred by Lambda-CDM of the dark sector such as a cosmological constant and non-relativistic Dark Matter. 
+This includes Warm Dark Matter, which poses to alleviate the Missing-Satellite problem, where ($\Lambda$CDM) produces too many satellite around central galaxies \citep{Klypin_99,Moore_99}. although some have proposed that this is not an issue of the standard cosmological model but rather it is to do with the limitations of Dark matter simulations \citep{Wetzel_16} or other feedback \citep[e.g][]{Bullock_00}. Although hydrodynamical simulations have also been criticized for their poor representations.
 Another is a quintessence model which poses to alleviate the \textit{fine-tuning} of the initial value for vacuum energy density.
 (during statements for the largest issues of ($\Lambda$CDM), introduce posited non-standard cosmos in order to alleviate issues)
-A conceptual problem with ($\Lambda$CDM) is the coincidence problem:  the values of energy densities of DM and DE are similar at present day, which seems quite unlikely given the age of the unviverse, thus perhaps there may be some inter-dependance within the dark sector which alleviates the otherwise unlikely coincidence. 
+A conceptual problem with ($\Lambda$CDM) is the coincidence problem:  the values of energy densities of DM and DE are similar at present day, which seems quite unlikely given the age of the universe, thus perhaps there may be some inter-dependence within the dark sector which alleviates the otherwise unlikely coincidence. 
 
-\section{Non-Standard Cosmological Models}
+\subsection{details of remainder of paper}
+Section \ref{cosmos} of this paper will introduce the main components of the Non-Standard Cosmologies considered within this study. Section \ref{method} is the methodology which introduces the simulations and structure classifications. This is followed by Section \ref{results} where the main findings will be presented, then Section \ref{discussion} contains the discussion of the results and Section \ref{conclusion} summarizes and concludes the findings. 
+
+\section{Non-Standard Cosmological Models}\label{cosmos}
 The cosmological models to be compared tweak the dark sector of the standard model, specifically, Dark Matter in the form of Warm Dark Matter and Dark Energy in the form of Uncoupled Quintessence. 
 
 \subsection{Uncoupled Quintessence  (\qcdm)}
@@ -168,11 +191,11 @@ V(\phi)=V_{0}\phi^{-\alpha}\label{rp}
 \end{ceqn}
 As for the potential term $V(\phi)$, this cosmology uses the Ratra-Peebles Potential  \citep{Ratra_88},where $V_{0}$ and $\alpha$ are constants which are fit through observational data, and $\phi$ is in units of Plank mass. This potential term is a contrived field potential such that at late times the quintessence field dominates the energy budget of the universe, and at early times it 'tracks' the energy density of matter and radiation akin to observations \citep{Joyce_15}.
 
-\subsection{Warm Dark Matter  (WDM)} 
+\subsection{Warm Dark Matter  ($\Lambda$WDM)} 
 The $\Lambda$CDM is extremely successful on large scales, thus WDM aims to merely modify the $\Lambda$CDM model in a effort to damp small-scale structure of the universe. WDM features Dark Matter particles which move at relativistic velocities, increasing the length of the free-streaming of particles, which will smooth out over-densities and suppress structure formation at scales smaller than the co-moving scale\citep{Bode_01}.
 The free-streaming limit of the WDM particle has been confined via observations of the Lyman-alpha forest, to a lower limit mass $m_{WDM}\gtrapprox$ 3.3KeV. \citep{Viel_13} Despite this lower limit, the mass we assign to our WDM model has particle energy = 2keV to exaggerate the cosmological effects. INCLUDE DETAILS ABOUT SCALE OF STRUCURE FORMATION AS PER ANDREWS PAPER  
 
-\section{Methodology}\label{SiriusBlack}
+\section{Methodology}\label{SiriusBlack}\label{method}
 
 % Example table
 \begin{table}
@@ -287,7 +310,7 @@ The more popular method in portraying the alignment signals is via taking the me
 
 There are many techniques in comparing two different signals, including cross-correlating using the auto-correlation algorithm, even taking the residuals can be a satisfactory approach to compare two alignment signals.
 
-\section{Results}\label{SiriusBlack}
+\section{Results}\label{results}
  
 \begin{figure}
 \centering
@@ -306,9 +329,9 @@ There are many techniques in comparing two different signals, including cross-co
 \end{figure}
 Figure 1 shows that that there is minor differences between alignment signals for each of the cosmologies considered. The slight dip within the second mass bin from the left side for the non-standard cosmologies may be worth further pursuit although they both lie within the error range of \citet{Trowland_13} signal. We also include these correlations for 1,2 and 5 Mpc/h
 
-\section{Discussion}\label{Discussion}
+\section{Discussion}\label{discussion}
 
-\section{Conclusion}\label{Conclusion}
+\section{Conclusion}\label{conclusion}
 
 \bibliographystyle{mnras}
 \bibliography{biblio} 
