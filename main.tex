@@ -117,7 +117,7 @@ Crawley, Western Australia 6009, Australia}
 
 % Abstract of the paper
 \begin{abstract}
-Despite the Standard Cosmological Model's (\lcdm) predictive accuracy on the largest scales of the universe, there are conceptual and observational shortfalls on galactic scales which loom large within dark sector cosmology. Problems of \textit{fine-tuning} the vacuum energy density $\Lambda$, a Dark Energy (DE)- Dark Matter (DM) \textit{coincidence} problem and the Missing Satellite problem, have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies in an effort to alleviate such shortfalls. This is a comparative study between a Warm Dark Matter (\lwdm), a coupled DM-DE cosmology (CDE), an uncoupled Quintessence (\qcdm) along with the fiducial \lcdm, conducted using the evolution of DM Halo Angular Momentum as a probe. Comparing the spin-filament alignment correlations as a function of mass at various smoothing scales and from z=0 to z=2.98, we find no systematic differences between cosmologies. 
+Despite the Standard Cosmological Model's (\lcdm) predictive accuracy on the largest scales (beyond galactic scales) of the universe, there are conceptual and observational shortfalls on galactic scales which loom large within dark sector cosmology. Problems of \textit{fine-tuning} the vacuum energy density $\Lambda$, a Dark Energy (DE)- Dark Matter (DM) \textit{coincidence} problem and the Missing Satellite problem, have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies in an effort to alleviate such shortfalls. This is a comparative study between a Warm Dark Matter (\lwdm), a coupled DM-DE cosmology (CDE), an uncoupled Quintessence (\qcdm) along with the fiducial \lcdm, conducted with the evolution of DM Halos Angular Momentum. Comparing the spin-filament alignment correlations as functions of mass at various smoothing scales and from z=0 to z=2.98, we find no systematic differences between cosmologies. 
 
 %This is a simple template for authors to write new MNRAS papers. The abstract should briefly describe the aims, methods, and main results of the paper. It should be a single paragraph not more than 250 words (200 words for Letters). No references should appear in the abstract.
 \end{abstract}
@@ -273,89 +273,104 @@ Where $\textbf{n}=(n_{x},n_{y},n_{z})$ and $\textbf{m}=(m_{x},m_{y},m_{z})$ are 
 \end{equation}
 \end{ceqn}
 
-Where $\alpha$,$\beta$=x,y,z and a constant known as the wavenumber, defined as $k=\frac{-4\pi^{2}m^{2}}{N^{2}}$ which is multiplied through all Hessian Matrix elements, but varying is the k-space grid??. Then to result in the Hessian Matrix, we take the inverse Fourier transform as below:
+Where $\alpha$,$\beta$=x,y,z and the wavenumber, defined as $k=\frac{-4\pi^{2}m_{\alpha}m_{\beta}}{N^{2}}$ is multiplied throughout the Hessian Matrix elements, with $m_{\alpha}m_{\beta}$ determining the orientation of the fourier-space grid. Once the 6 unique elements of the Hessian have been calculated, we can take the inverse Fourier transform:
 \begin{ceqn}
 \begin{equation}
 \textbf{\textit{H}}_{\alpha \beta}=\mathcal{F}^{-1}\Big\{k\cdot F_{m_{\alpha \beta}}\Big\}
 \label{invfouriordtf}
 \end{equation}
 \end{ceqn}
-There are 6 unique components to produce the 9 elements of the Hessian. It is of great importance for the Hessian matrix to be formed within Fourier space in order to avoid numerical effects resulting in inaccurate eigenvectors.
-\\
-Taking the eigenpairs which results from applying the Hessian method to each voxel of the density field allows us characterize each voxel within the field as either a:
-\\
-\\
-\textbf{Cluster} $\lambda_{1}$<0, $\lambda_{2}$<0, $\lambda_{3}$<0
-\\
-\textbf{Filament} $\lambda_{1}$<0, $\lambda_{2}$<0, $\lambda_{3}$>0
-\\
-\textbf{Sheet} $\lambda_{1}$<0, $\lambda_{2}$>0, $\lambda_{3}$>0
-\\
-\textbf{Void} $\lambda_{1}$>0, $\lambda_{2}$>0, $\lambda_{3}$>0
-\\
+It is of great importance for the Hessian matrix to be formed within Fourier space as such, in order to avoid numerical effects resulting in inaccurate eigenvectors.
 
-where each voxel features $\lambda_{1}$,$\lambda_{2}$,$\lambda_{3}$ and the corresponding eigenvectors $\textbf{e}_{1}$,$\textbf{e}_{2}$,$\textbf{e}_{3}$ represent the directions associated with their eigenvalues. As the eigenvalues are ordered by size, the smallest eigenvalue corresponds with $\textbf{e}_{3}$  which itself represents the slowest collapsing axes, thus will be used to represent the filaments axes direction thereafter.
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	LSS Type & $\lambda_{1}$ & $\lambda_{2}$ & $\lambda_{3}$ & LSS axis\\
+	\hline
+    Cluster & $<0$ & $<0$ & $<0$ & $\textbf{e}_{3}$\\
+	\hline
+    Filament & $<0$ & $<0$ & $>0$ & $\textbf{e}_{3}$\\
+	\hline
+    Sheet & $<0$ & $>0$ & $>0$ & $\textbf{e}_{3}$\\
+	\hline
+    Void & $>0$ & $>0$ & $>0$ & $\textbf{e}_{3}$\\
+	\hline   
+    
+\end{tabular}
+\caption{\label{eigpairs}Depending on the eigenvalues and their values, we classify each voxel as a Cluster, Filament, Sheet or Void. The LSS axis is represented by the last collapse direction, being $\textbf{e}_{3}$ regardless of the LSS type.}
+\end{table}
 
-\subsection{Alignment of halo spin}\label{alignment}
+Mapping the Hessian matrix via taking the eigenpairs for each voxel allows us to encapsulate the curvature information along the 3 spatial dimensions within the eigenvalues and eigenvectors.
+Using the eigenvalues $\lambda_{1}$,$\lambda_{2}$,$\lambda_{3}$ we can classify each voxel with one of 4 LSS, as per Table \ref{eigpairs}. The corresponding eigenvectors $\textbf{e}_{1}$,$\textbf{e}_{2}$,$\textbf{e}_{3}$ represent the directions associated with their eigenvalues. The eigenvector corresponding with the smallest eigenvalue (represented by $\textbf{e}_{3}$)  pints in the direction of slowest collapse (see Section \ref{intro} for details), thus will be used to represent the axes of all LSS.
 
-\subsubsection{Halo Classification}
-The simulations produce snapshots which are then used to feed into VELOCIraptor, a Dark Matter Halo classifier (A.K.A STructure Finder) \citep{Elahi_11}. VELOCIraptor is a sub(halo) finder which works in a two-step process:
-1. Halos are first identified using a  3DFoF algorithm and artificial  particle bridges are cut off via a 6DFoF algorithm, as well through the velocity dispersion of the FoF group.
-2.Then follows the convention of treating smaller objects as sub-halos and larger objects as host halos. 
-A linking length of 0.1 is used
+\subsection{Spin-LSS Alignment}\label{alignment}
 
-Only halos classified with more than 100 particles or more are taken into account during this study as halos spin measurements are more reliable at this threshold. 
+\subsubsection{Halo Classification}\label{halo_spin}
+The very same particles which are used to classify LSS are then used to feed into VELOCIraptor, a Dark Matter Halo classifier (A.K.A STructure Finder) \citep{Elahi_11}. VELOCIraptor is a sub(halo) finder which works in a two-step process:
+1. Halos are first identified using a  3DFoF algorithm pruned for any artificial particle bridges using a 6DFoF and the velocity dispersion of the FoF group.
+2.Then substructure is found by inspecting the dynamics, such as velocity distribution of particles and their distinctness with the halo environment. The substructure is linked via a phase-space FoF algorithm. 
+
+VELOCIraptor also generates the spins of the catalog halos, but we filter out halos with at least 100 particles as the spin measurements are more reliable at this threshold. 
 \begin{ceqn}
 \begin{equation}
 \textbf{J}=\sum_{i=0}^{N}\textbf{r}_i\times m_i\textbf{v}_i \label{AM}
 \end{equation}
 \end{ceqn}
 
+The spin of each halo is calculated by including all the associated particles (N) for each halo, as per equation \ref{AM}. $\textbf{r}_i,m_i and \textbf{v}_i$ are the particle radius from halo centre, mass and velocity, respectively.
+
 \subsubsection{dot product}
 
-The spin of each halo is calculated by taking all the particles involved and the cross-product is taken between the radius from halo center to particle center and the mass multiplied by the velocity of the particle, then sum up all of those for each particle within a halo.
+Given the spin of halos (section \ref{halo_spin}) and the axes of the LSS (section \ref{lssclass}) we take the dot product of the spin \textbf{J} with the LSS axes vector $\textbf{e}_{3}$. As detailed in section \ref{intro}, $\textbf{e}_{3}$ aligns with the slowest collapse direction, thus it is an ideal definition for the direction of all LSS which we use for the spin-filament dot product alignment measure, see above equation.
+Since all we require is the alignment, we take the absolute value of the dot products thus we are left with the alignment from 0 to 90 degrees. 
 \begin{ceqn}
 \begin{equation}
 cos(\theta)=\bigg|\frac{\textbf{J}\cdot \textbf{e}_{3}}{|\textbf{J}| |\textbf{e}_{3}|}\bigg|\label{dotprod}
 \end{equation}
 \end{ceqn}
-Given the spin of halos and the axes of the LSS we take the dot product of the unit vector of the spin \textbf{J} with the LSS axes unit vector $\textbf{e}_{3}$. As detailed in section \ref{intro}, $\textbf{e}_{3}$ corresponds with the slowest collapse axes, thus it is an ideal definition for all LSS axes \citep{Kang_15,Libeskind_14}.
-Since all we require is the alignment, we take the absolute value of the dot products thus we are left with the alignment from 0 to 90 degrees. 
 
-\subsubsection{Model Fitting} 
+\subsubsection{Alignment Correlations} 
 
-Equation \ref{mod} is the model which was derived by \citet{Lee_11}, is used to fit to the distribution of the alignment between halo spin and the minor axis of the tidal field, that is the filament axis. The model is a good indication to show the strength of alignment (based on the correlation coefficient c and whether it aligns with the theory of TTT in that it is predicted spin shall be parallel aligned (thus the correlation coefficient shall be negative) to the tidal field. but as introduced, the spin may also become orthogonal, especially of high mass halos, due to mergers and accretion and perhaps a later turn around before the halos becomes virialized.
+Equation \ref{mod} is the model which was derived by \citet{Lee_11}, that takes into account the unit spin vector of structures and the tidal field in order to quantify the degree of alignment. It is used in this study to fit to the distribution of the alignment between halo spin and $\textbf{e}_{3}$. The model is a good indication to show the strength of alignment (based on the correlation coefficient c and whether it aligns with the theory of TTT in that it is predicted spin shall be parallel aligned thus the correlation coefficient shall be negative) to the tidal field. but as introduced, the spin may also become orthogonal, especially of high mass halos, due to mergers and accretion and perhaps a later turn around before the halos becomes virialized.
 \begin{ceqn}
 \begin{equation}
 \textit{P}(cos\theta)=(1-c)\sqrt{1+\frac{c}{2}}\Big[1-c\Big(1-\frac{3}{2}cos^{2}\theta\Big)\Big]^{-3/2} \label{mod}
 \end{equation}
 \end{ceqn}
 
-\subsubsection{Median Method}
 The more popular method in portraying the alignment signals is via taking the mean/median of the dot product values for each mass bin, and calculating the error of the mean/median using Bootstrap re-sampling. Although this method is more popular, this study will fit to the model as it gives a good indication of the strength of alignment but also because it gives a good indication of how the results compare to TTT.
 
 \section{Results}\label{results}
  
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5.png}
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_ALIGNMENT_PLOT_gd1250_smth2Mpc.png}
 \label{cor_fig} 
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5_cde0.png}\label{cor_fig_cde0} 
-
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_bootstrappost_LSS2_spin_sim500Mpc_grid1250_smth2Mpc_4bins_partclfilt100_.png}\label{cor_fig_cde0} 
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{MOD_FIT_PLOT_grid_850_smth_scl3_5_wdm2.png}\label{cor_fig_wdm2} 
-\caption{PRELIMINARY: The top plot shows the strength of alignment as measured via the correlation coefficient from fitting equation \ref{mod} using mcmc. for \lcdm. Middle plot shows the same but for \qcdm and the bottom plot shows for WDM}
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_FIT_PLOT_gd1250_smth_smth2Mpc.png}\label{cor_fig_wdm2} 
+\caption{PRELIMINARY}
 \end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_FIT_PLOT_gd1250_smth_smth2Mpc_dp_mthd_increm_overlap90perc.png}\label{cor_fig_wdm2} 
+\caption{PRELIMINARY}
+\end{figure}
+So I could start with just the simple plots I have on here of just alignment of halo with filament, use this as a simple first demonstration. Then move on to showing the same alignment in median method, noting that it is a common way to portray alignment. Then write about the moving bin and place in the larger plots I have to show residuals etc. and speak about my decision to involve the halo count as halo numbers severely reduce which could affect things. But I can also take not of all the trends I see such as smoothing scale trends and redshift trends and coordinate with Holly's papers and others who find it. Then put in the velocity although they may be useless and write about seeing perhaps different type of bulk flows etc. Then include the spins of all LSS.
+\\
+
+
 Figure 1 shows that that there is minor differences between alignment signals for each of the cosmologies considered. The slight dip within the second mass bin from the left side for the non-standard cosmologies may be worth further pursuit although they both lie within the error range of \citet{Trowland_13} signal. We also include these correlations for 1,2 and 5 Mpc/h
 
 \begin{figure*}
 \centering
-\includegraphics[width=1\textwidth]{fig_5_equiv_mass_bins_snapshot_011_4_5_5.png}
+\includegraphics[width=0.7\textwidth]{dm_only_cde0_snapshot_011_DTFE_ALIGNMENT_PLOT_gd1250_smth2Mpc.png}
 \label{comb_fig} 
 \caption{This figure shows overplotting of 3 cosmologies as in legend for 3 smoothing scales}
 \end{figure*}
