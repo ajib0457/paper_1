@@ -45,6 +45,7 @@
 \usepackage{amssymb}	% Extra maths symbols
 \usepackage{verbatim} % To allow for commenting out of blocks of text using comment
 \usepackage{subcaption}
+\usepackage{placeins}
 \captionsetup{compatibility=false}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,6 +64,9 @@
 \def \lcdm{$\Lambda$CDM }
 \def \lwdm{$\Lambda$WDM }
 \def \qcdm{$\phi$CDM }
+\def \qcdmo{$\phi CDM_{50}$ }
+\def \qcdmoo{$\phi CDM_{99}$ }
+\def \e3{$\textbf{e}_{3}$}
 \newcommand{\dedm}[1]{$\phi(\beta_o=#1)$CDM}
 
 % reference commands
@@ -90,7 +94,7 @@
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
 %\title[\textit{N}-Body Studies of Non-Standard Cosmologies]{ \textit{N}-Body Studies of Non-Standard Cosmologies:\\ Spin Correlations and Large-Scale Structures }
-\title[Seeking cosmological signatures in simulations]{ Seeking Cosmological Signatures in Simulations:\\ Spin Correlations and Large-Scale Structures }
+\title[Seeking cosmological signatures Within \textit{N}-Body Simulations]{On Seeking Cosmological Signatures:\\ Comparing Halo Spin Evolution Within High/Low Density Regions }
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
 \author[A. W. Jibrail et al.]{
@@ -117,7 +121,7 @@ Crawley, Western Australia 6009, Australia}
 
 % Abstract of the paper
 \begin{abstract}
-Despite the Standard Cosmological Model's (\lcdm) predictive accuracy on the largest scales (beyond galactic scales) of the universe, there are conceptual and observational shortfalls on galactic scales which loom large within dark sector cosmology. Problems of \textit{fine-tuning} the vacuum energy density $\Lambda$, a Dark Energy (DE)- Dark Matter (DM) \textit{coincidence} problem and the Missing Satellite problem, have inspired theorists to posit and study - the latter using $N$-body simulations - non-standard cosmologies in an effort to alleviate such shortfalls. This is a comparative study between a Warm Dark Matter (\lwdm), a coupled DM-DE cosmology (CDE), an uncoupled Quintessence (\qcdm) along with the fiducial \lcdm, conducted with the evolution of DM Halos Angular Momentum. Comparing the spin-filament alignment correlations as functions of mass at various smoothing scales and from z=0 to z=2.98, we find no systematic differences between cosmologies. 
+Despite the Concordance model's (\lcdm) predictive accuracy on the largest scales of the universe, there are conceptual and observational shortfalls on galactic scales which loom large within dark sector cosmology. Problems of \textit{fine-tuning} the vacuum energy density $\Lambda$, a Dark Energy (DE)- Dark Matter (DM) \textit{coincidence} problem and the Missing Satellite problem, have inspired theorists to posit and study non-standard cosmologies in an effort to alleviate such shortfalls. This is a comparative study between a Warm Dark Matter (\lwdm), a coupled DM-DE cosmology (CDE), an uncoupled Quintessence (\qcdm) along with the fiducial \lcdm, conducted with the evolution of DM Halos Angular Momentum. Comparing the spin-filament alignment correlations as functions of mass at various smoothing scales and from z=0 to z=2.98, we find no systematic differences between cosmologies. 
 
 %This is a simple template for authors to write new MNRAS papers. The abstract should briefly describe the aims, methods, and main results of the paper. It should be a single paragraph not more than 250 words (200 words for Letters). No references should appear in the abstract.
 \end{abstract}
@@ -142,7 +146,7 @@ Tidal Torque Theory (TTT) describes the procurement of the initial Angular Momen
 It is argued that since the tidal field is the manifestation of the cosmological environment, and this field predominantly, although arguably, is responsible for the acquisition of initial Halo spins (spin refers to the halo unit vector direction of Angular Momentum hereafter). It is argued that the signatures of a cosmology are imprinted on the spins of galaxies \citep{Lee_pen_00} and thus spin may be a suitable probe of cosmology. In contrast, it has been conjectured that since over-dense regions such as sheets, filaments and clusters are susceptible to non-linear physics, these cosmological signatures are possibly erased or otherwise masked, placing doubt on whether halo spin is a good probe for cosmology.
 \\
 Nonetheless there are numerous studies which investigate the  LSS of \lcdm by using spin alignment and evolution as a probe within simulations. Studies such as \citet{Faltenbacher_02,Calvo_07,Zhang_09} and \citet{Hahn_07} find that there are clear correlation signals between LSS axes and halo spins, which can be linked to the formation of LSS and its influence on the spin and shapes of halos. Specifically, \citet{Zhang_09} find that the spin and shape of halos within filaments of M $\leq$ $10^{13}$ $h^{-1}$ \(M_\odot\) are aligned with the filament axes. Furthermore they find that the alignments are strengthened for halos which are closer to more massive node (cluster) halos. They interpret this as 'transit large-scale environment impact' that is a transit from two-dimensional filaments to three-dimensional clusters.
-\citet{Trowland_13} conducts a spin evolution study using the Millennium simulations and finds that at low redshift, low mass DM halo spins ( $\sim$$10^{11.6}$ to $10^{12.9}$ $h^{-1}$ \(M_\odot\)) tend to be aligned to their filaments whereas high mass halos ( $\sim$ $10^{12.9}$ to $10^{13.4}$ $h^{-1}$ \(M_\odot\)) tend to be orthogonal in their alignment, suggesting that TTT may not be the sole mechanism for spin acquisition.  
+\citet{Trowland_13} conducts a spin evolution study using the Millennium simulations and finds that at low z, low mass DM halo spins ( $\sim$$10^{11.6}$ to $10^{12.9}$ $h^{-1}$ \(M_\odot\)) tend to be aligned to their filaments whereas high mass halos ( $\sim$ $10^{12.9}$ to $10^{13.4}$ $h^{-1}$ \(M_\odot\)) tend to be orthogonal in their alignment, suggesting that TTT may not be the sole mechanism for spin acquisition.  
 
 The alignment of halo spin with LSS is not exclusive to filamentary structure, but is also seen within sheets and clusters, where there is a general alignment between halo spin and the e2 (initial intermediate tidal tensor) axes, also known as the axes of slowest collapse. \citep{Libeskind_12,Dubois_14,Calvo_14,Kang_15,Wang_17,Veena_18} 
 
@@ -151,7 +155,7 @@ The alignment of halo spin with LSS is not exclusive to filamentary structure, b
 These alignments have not only been found in simulation but also in through observation \citep{Jones_10}. \citet{Pen_00} also shows tentative alignment in spirals. 
 \citet{Lee_Erdogdu_07} show that galaxies in the Tully-Fisher catalog are weakly orthogonal with their environment, stating an average correlation coefficient (c) value of $\bar{c}=0.084\pm 0.014$ (where c=0 represents a random alignment) to their LSS with 99.9$\%$ confidence (based on Kolmogorov-Smirnov statistic) that the null hypothesis of no spin-shear correlation is rejected.
 \\
-There is much simulation-based research in cosmological model comparison. From studies such as \citet{Elahi_14} finding that above the suppression scale, on the scales of galaxy clusters, there are marked differences between \lcdm and \lwdm. \citet{Elahi_15} shows little to no difference between \lcdm and the coupled cosmologies, judging by the lack of systematic differences between spin parameter and satellite alignment distributions across cosmologies. \citet{Adermann_18} finds that there is a potentially observable difference between the volume distribution of voids between \lcdm and CDE at low redshift. Also, differences are found between the densities of voids for each cosmology, being emptiest in \qcdm and densest within \lcdm. \citet{Carlesi_14a} finds, using hydrodynamical simulations, that a self interacting quintessence model (uDE) provides a higher concentration of halos within the LSS as compared to their fiducial \lcdm and other cosmologies compared. \citet{Carlesi_14b} find a weak coupling between the spin, triaxiality and virialisation and the cosmology dark sector types. \citet{Smith_11} find that WDM model suppresses the halo mass function by 50$\%$ for masses 100 times the free-streaming mass scale. \citet{Watts_17} finds there are higher cluster abundances and lower void abundances within the \qcdm with respect to \lcdm. 
+There is much simulation-based research in cosmological model comparison. From studies such as \citet{Elahi_14} finding that above the suppression scale, on the scales of galaxy clusters, there are marked differences between \lcdm and \lwdm. \citet{Elahi_15} shows little to no difference between \lcdm and the coupled cosmologies, judging by the lack of systematic differences between spin parameter and satellite alignment distributions across cosmologies. \citet{Adermann_18} finds that there is a potentially observable difference between the volume distribution of voids between \lcdm and CDE at low z. Also, differences are found between the densities of voids for each cosmology, being emptiest in \qcdm and densest within \lcdm. \citet{Carlesi_14a} finds, using hydrodynamical simulations, that a self interacting quintessence model (uDE) provides a higher concentration of halos within the LSS as compared to their fiducial \lcdm and other cosmologies compared. \citet{Carlesi_14b} find a weak coupling between the spin, triaxiality and virialisation and the cosmology dark sector types. \citet{Smith_11} find that WDM model suppresses the halo mass function by 50$\%$ for masses 100 times the free-streaming mass scale. \citet{Watts_17} finds there are higher cluster abundances and lower void abundances within the \qcdm with respect to \lcdm. 
 
 Aside from simulations and astronomical observations, there are active fields of research which hunt for dark matter particles, such as Weakly-Interacting Massive Particles (WIMPS)\citep{Cerde_10}, others explain away dark matter in the form of Massive Compact halo Objects (MACHOS) \citep{Alcock_00} or Modified Newtonian Dynamics (MOND) \citep{Milgrom_15}. There are other  Dark Matter and Dark energy alternatives, see \citet{Mannheim_06} for a review. 
 \\
@@ -214,13 +218,13 @@ Prior to detailing the N-body simulations used throughout this study, it is impo
 \\
 Following the methodology of \citep{Elahi_15} DARK-GADGET is the N-body code used to generate the simulations used throughout. It is a modified version of the P-GADGET code, the key modification is the inclusion of a separate gravity tree to account for additional long-range forces and an evolving DM-particle mass to allow for decay. For non-standard cosmologies, the code requires full evolution of the scalar field $\phi$, the mass of DM-particles and the expansion history. All cosmologies have cosmological parameters values (h,$\Omega_{b}$,$\Omega_{g}$,$\sigma_{g}$)=0.67,0.3175,0.049,0.83, making sure they are aligned with z=0, \lcdm Plank data \citep{Plank_14b,Plank_16}. In order to calculate the evolving linear power spectrum of the non-standard cosmologies along with the growth rate $\textit{f}\equiv dln D(a)/dln \textit{a} $, the publicly available CMBEASY \citep{Doran_05} code is used, a Boltzmann code to solve first-order Newtonian perturbation equations. 
 \\
-All cosmologies feature a 500$h^{-1}$Mpc sized box with $2 \times 512^{3}$ particles, where the particle mass at z=0 for all cosmologies are $m_{DM}(m_{gas})=6.9(1.3)\times 10^{10}h^{-1}M_{\odot}$, although the exact masses within the coupled cosmologies naturally depend on z. We look at 7 snapshots, beginning at z=2.98. Although, the simulations are initiated from z=100 with the same phases in their density perturbations, resulting in under-dense and over-dense regions in similar locations, thus LSS locations and quantities should also be similar. Initial conditions are produced using a uniform Cartesian grid along with the first-order Zel'Dovich approximation using an altered version of the publicly available N-GENIC code. The growth factors and expansion history calculated by CMBEASY are used to solve the particle displacements in the non-standard cosmologies. 
+All cosmologies feature a 500$h^{-1}$Mpc sized box with $2 \times 512^{3}$ particles, where the particle mass at z=0 for all cosmologies are $m_{DM}(m_{gas})=6.9(1.3)\times 10^{10}h^{-1}M_{\odot}$ for simulations including gas and $m_{DM}=8.2\times 10^{10}h^{-1}M_{\odot}$ for DM only. We look at 7 snapshots, beginning at \textit{z}=2.98. Although, the simulations are initiated from z=100 with the same phases in their density perturbations, resulting in under-dense and over-dense regions in similar locations, thus LSS locations and quantities should also be similar. Initial conditions are produced using a uniform Cartesian grid along with the first-order Zel'Dovich approximation using an altered version of the publicly available N-GENIC code. The growth factors and expansion history calculated by CMBEASY are used to solve the particle displacements in the non-standard cosmologies. 
 
 \begin{comment}
 %for dm_only simulations, check Watts paper
-We simulate cosmologies \lcdm \lwdm and \qcdm using a modified version of the GADGET-2 code\citep{Springel_05} named P-GADGET-2. This version is adapted to include non-standard dark sector physics, see \citet{Carlesi_14a} For more details. The three simulations to be compared are generated with the same initial phase information in order to give the study the best opportunity to distinguish the cosmic signatures of each cosmology. We also run the same cosmologies with various initial seeds as to test for cosmic variance. importantly, care must be taken in the context of conclusions to draw from the comparisons of non-standard cosmological simulations with the fiducial as in generating initial conditions there is some choice as to match observations at z=0 or $z_{CMB}$. 
+We simulate cosmologies \lcdm \lwdm and \qcdm using a modified version of the GADGET-2 code\citep{Springel_05} named P-GADGET-2. This version is adapted to include non-standard dark sector physics, see \citet{Carlesi_14a} For more details. The three simulations to be compared are generated with the same initial phase information in order to give the study the best opportunity to distinguish the cosmic signatures of each cosmology. We also run the same cosmologies with various initial seeds as to test for cosmic variance. importantly, care must be taken in the context of conclusions to draw from the comparisons of non-standard cosmological simulations with the fiducial as in generating initial conditions there is some choice as to match observations at \textit{z}=0 or $z_{CMB}$. 
 \\
-for all simulations, cosmological parameters are (h,$\Omega_{b}$,$\Omega_{g}$,$\sigma_{g}$)=0.67,0.3175,0.049,0.83, making sure all cosmologies are aligned with z=0, \lcdm Plank data \citep{Plank_14b,Plank_16}. The redshift of the CMB for the \qcdm is offset since the cosmological parameters stated are based upon the \lcdm model. This results in an early expansion history for \qcdm although results in the same $\sigma_{g}$ and expansion rate H(a=1) at z=0 as \lcdm. The growth rates are generated using CMBEASY and are utilized for generating the initial conditions in GADGET format, using the publicly available N-GENICI MPI code. 
+for all simulations, cosmological parameters are (h,$\Omega_{b}$,$\Omega_{g}$,$\sigma_{g}$)=0.67,0.3175,0.049,0.83, making sure all cosmologies are aligned with z=0, \lcdm Plank data \citep{Plank_14b,Plank_16}. The \textit{z} of the CMB for the \qcdm is offset since the cosmological parameters stated are based upon the \lcdm model. This results in an early expansion history for \qcdm although results in the same $\sigma_{g}$ and expansion rate H(a=1) at z=0 as \lcdm. The growth rates are generated using CMBEASY and are utilized for generating the initial conditions in GADGET format, using the publicly available N-GENICI MPI code. 
 
 %for dm_gas simulations, check Adremann paper
 Following \citep{Elahi_15} We analyze three separate simulations with the following cosmological models: a reference \lcdm, an uncoupled scalar field representing DE model \qcdm and two coupled DM-DE cosmologies (CDE) with coupling parameters $\beta_{0}=0.05$ and 0.099, which are chosen to test the boundaries of allowed coupling and maximize differences between the fiducial cosmology. 
@@ -264,11 +268,11 @@ X_{\textbf{m}}=\sum_{\textbf{n}=0}^{\textbf{N}-1}x_{\textbf{n}}\cdot e^{-2\pi i(
 \label{dft}
 \end{equation}
 \end{ceqn}
-Where $\textbf{n}=(n_{x},n_{y},n_{z})$ and $\textbf{m}=(m_{x},m_{y},m_{z})$ are vectors of grid points and frequencies, for each spatial dimension. We then take the $2^{nd}$ partial derivative of  $\mathcal{F}(\rho_{s}(\textbf{x}))$:
+Where $\textbf{n}=(n_{x},n_{y},n_{z})$ and $\textbf{m}=(m_{x},m_{y},m_{z})$ are vectors of grid points and frequencies, for each spatial dimension respectively. We then take the $2^{nd}$ partial derivative of  $\mathcal{F}(\rho_{s}(\textbf{x}))$:
 
 \begin{ceqn}
 \begin{equation}
-\frac{\partial^{2} \mathcal{F}(\rho_{s}(\textbf{x}))}{\partial n_{\alpha} \partial n_{\beta}}=\frac{-4\pi^{2}m_{\alpha}m_{\beta}}{N^{2}}\sum_{\textbf{n}=0}^{\textbf{N}-1}\rho_{s(\textbf{n})}e^{-2\pi i(\textbf{mn}/\textbf{N})} 
+\frac{\partial^{2} \mathcal{F}(\rho_{s}(\textbf{x}))}{\partial n_{\alpha} \partial n_{\beta}}=\frac{-4\pi^{2}m_{\alpha \beta}}{N^{2}}\sum_{\textbf{n}=0}^{\textbf{N}-1}\rho_{s(\textbf{n})}e^{-2\pi i(m_{\alpha \beta}\textbf{n}/\textbf{N})} 
 \label{dftdiff}
 \end{equation}
 \end{ceqn}
@@ -302,7 +306,7 @@ It is of great importance for the Hessian matrix to be formed within Fourier spa
 \end{table}
 
 Mapping the Hessian matrix via taking the eigenpairs for each voxel allows us to encapsulate the curvature information along the 3 spatial dimensions within the eigenvalues and eigenvectors.
-Using the eigenvalues $\lambda_{1}$,$\lambda_{2}$,$\lambda_{3}$ we can classify each voxel with one of 4 LSS, as per Table \ref{eigpairs}. The corresponding eigenvectors $\textbf{e}_{1}$,$\textbf{e}_{2}$,$\textbf{e}_{3}$ represent the directions associated with their eigenvalues. The eigenvector corresponding with the smallest eigenvalue (represented by $\textbf{e}_{3}$)  pints in the direction of slowest collapse (see Section \ref{intro} for details), thus will be used to represent the axes of all LSS.
+Using the eigenvalues $\lambda_{3}$<$\lambda_{2}$<$\lambda_{1}$ we can classify each voxel with one of 4 LSS, as per Table \ref{eigpairs}. The corresponding eigenvectors $\textbf{e}_{1}$,$\textbf{e}_{2}$,$\textbf{e}_{3}$ represent the directions associated with their eigenvalues. The eigenvector corresponding with the smallest eigenvalue (represented by $\textbf{e}_{3}$)  pints in the direction of slowest collapse (see Section \ref{intro} for details), thus will be used to represent the axes of all LSS.
 
 \subsection{Spin-LSS Alignment}\label{alignment}
 
@@ -323,7 +327,7 @@ The spin of each halo is calculated by including all the associated particles (N
 \subsubsection{dot product}
 
 Given the spin of halos (section \ref{halo_spin}) and the axes of the LSS (section \ref{lssclass}) we take the dot product of the spin \textbf{J} with the LSS axes vector $\textbf{e}_{3}$. As detailed in section \ref{intro}, $\textbf{e}_{3}$ aligns with the slowest collapse direction, thus it is an ideal definition for the direction of all LSS which we use for the spin-filament dot product alignment measure, see above equation.
-Since all we require is the alignment, we take the absolute value of the dot products thus we are left with the alignment from 0 to 90 degrees. 
+Since all we require is the alignment, we take the absolute value of the dot products thus we are left with the alignment from 0 to 90 degrees. Figure \ref{mean_spin} shows an example of the spin-LSS alignment whereby the dot-product results are binned into 4 bins. For each mass bin, the mean of the dot-product values are taken then, using bootstrap re-sampling, the means are distributed, the peak is taken as the most likely value and the 1$\sigma$ error of the Gaussian (as per Figure \ref{bootstrap_post}) re-sampling is represented by the shaded region. 
 \begin{ceqn}
 \begin{equation}
 cos(\theta)=\bigg|\frac{\textbf{J}\cdot \textbf{e}_{3}}{|\textbf{J}| |\textbf{e}_{3}|}\bigg|\label{dotprod}
@@ -332,60 +336,179 @@ cos(\theta)=\bigg|\frac{\textbf{J}\cdot \textbf{e}_{3}}{|\textbf{J}| |\textbf{e}
 
 \subsubsection{Alignment Correlations} 
 
-Equation \ref{mod} is the model which was derived by \citet{Lee_11}, that takes into account the unit spin vector of structures and the tidal field in order to quantify the degree of alignment. It is used in this study to fit to the distribution of the alignment between halo spin and $\textbf{e}_{3}$. The model is a good indication to show the strength of alignment (based on the correlation coefficient c and whether it aligns with the theory of TTT in that it is predicted spin shall be parallel aligned thus the correlation coefficient shall be negative) to the tidal field. but as introduced, the spin may also become orthogonal, especially of high mass halos, due to mergers and accretion and perhaps a later turn around before the halos becomes virialized.
+Equation \ref{mod} is a spin alignment model derived by \citet{Lee_11} from TTT that takes into account the unit spin vector of structures and the tidal field in order to quantify the degree of alignment. It is used in this study to fit to the distribution of the alignment between halo spin and $\textbf{e}_{3}$. The model is a good indication to show the strength of alignment (based on the correlation coefficient (c) whereby a positive c represents an orthogonal alignment and agrees with TTT predictions, but a negative c is contrary to TTT) to the tidal field. but as introduced, the spin may also become orthogonal, especially of high mass halos, due to mergers, accretion and formation time/entering time of as per the conclusions of \citet{Wang_17}.
 \begin{ceqn}
 \begin{equation}
 \textit{P}(cos\theta)=(1-c)\sqrt{1+\frac{c}{2}}\Big[1-c\Big(1-\frac{3}{2}cos^{2}\theta\Big)\Big]^{-3/2} \label{mod}
 \end{equation}
 \end{ceqn}
 
+An example of model-fitted alignment curve is displayed in Figure \ref{mod_align}. The model is fitted onto each mass-binned dot-product set as per Figure \ref{mod_fit}, and the posterior chain of the MCMC fitting is represented in Figure \ref{post_mc}. MCMC fits the model via a random walk of multiple walkers, the path of which builds a posterior distribution that is used to approximate c, and an error of 1$\sigma$.
+\\
 The more popular method in portraying the alignment signals is via taking the mean/median of the dot product values for each mass bin, and calculating the error of the mean/median using Bootstrap re-sampling. Although this method is more popular, this study will fit to the model as it gives a good indication of the strength of alignment but also because it gives a good indication of how the results compare to TTT.
 
-\section{Results}\label{results}
- 
 \begin{figure}
 \centering
 \includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_ALIGNMENT_PLOT_gd1250_smth2Mpc.png}
-\label{cor_fig} 
+\caption{One common plotting approach is binning the mean of the dot-products as a function of halo mass. A value of 0.5 represents a random alignment, and below 0.5 symbolizes a orthogonal alignment. This figure shows an increasingly orthogonal alignment with increasing halo mass.}\label{mean_spin}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_bootstrappost_LSS2_spin_sim500Mpc_grid1250_smth2Mpc_4bins_partclfilt100_.png}\label{cor_fig_cde0} 
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_gridpost_LSS2_spin_sim500Mpc_grid1250_smth2Mpc_4bins_partclfilt100_11000griddens.png}
+\caption{Bootstrap re-sampled mean distribution for each bin representing each subplot in this figure.}\label{bootstrap_post} 
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_FIT_PLOT_gd1250_smth_smth2Mpc.png}\label{cor_fig_wdm2} 
-\caption{PRELIMINARY}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_FIT_PLOT_gd1250_smth_smth2Mpc_dp_mthd_increm_overlap90perc.png}\label{cor_fig_wdm2} 
-\caption{PRELIMINARY}
-\end{figure}
-So I could start with just the simple plots I have on here of just alignment of halo with filament, use this as a simple first demonstration. Then move on to showing the same alignment in median method, noting that it is a common way to portray alignment. Then write about the moving bin and place in the larger plots I have to show residuals etc. and speak about my decision to involve the halo count as halo numbers severely reduce which could affect things. But I can also take not of all the trends I see such as smoothing scale trends and redshift trends and coordinate with Holly's papers and others who find it. Then put in the velocity although they may be useless and write about seeing perhaps different type of bulk flows etc. Then include the spins of all LSS.
-\\
 
-
-Figure 1 shows that that there is minor differences between alignment signals for each of the cosmologies considered. The slight dip within the second mass bin from the left side for the non-standard cosmologies may be worth further pursuit although they both lie within the error range of \citet{Trowland_13} signal. We also include these correlations for 1,2 and 5 Mpc/h
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_FIT_PLOT_gd1250_smth_smth2Mpc.png} 
+\caption{This figure shows the correlation coefficient (c) as a function of halo mass. The green curve and shading represents this study as compared with the red curve recreated from \citet{Trowland_13} }\label{mod_align}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_grid_MOD_DATA_OVRPLT_gd1250_smth2Mpc.png} 
+\caption{This figure shows 4 subplots for the 4 mass bins in Figure \ref{mod_align} where the red curve is the dot-products (binned for brevity) and the blue curved model fitted via MCMC}\label{mod_fit}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{dm_only_cde0_snapshot_011_DTFE_bootstrappost_LSS2_spin_sim500Mpc_grid1250_smth2Mpc_4bins_partclfilt100_.png} 
+\caption{The MCMC walker posterior chains for each mass bin as per previous plot.}\label{post_mc}
+\end{figure}
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.7\textwidth]{dm_only_cde0_snapshot_011_DTFE_ALIGNMENT_PLOT_gd1250_smth2Mpc.png}
-\label{comb_fig} 
-\caption{This figure shows overplotting of 3 cosmologies as in legend for 3 smoothing scales}
+\includegraphics[width=0.7\textwidth]{isol_fil_two_14.png} 
+\caption{Visualisation of simulation sample. White lines represent tidal field. Red blobs indicate Blobs. Yellow isosurface indicates a Filament. The Hessian Matrix method classified the LSS.}\label{vis}
 \end{figure*}
 
-Figure \ref{comb_fig} shows that cosmologies with the same initial seeds slightly differ as a function of smoothing scale. From the figure it is seen that the most difference seems to be at 3.5Mpc/h scales but there is also some statistically significant difference within the lowest mass halos within the 2Mpc/h smoothing scales. The contrary is true at larger smoothing scales since smaller scale features are smoothed out and result in very similar comparisons for all cosmologies. Although, we find that there are discrepancies within the high mass bin of high smoothing scales.
+\section{Results}\label{results} 
+\FloatBarrier
+The results are split into two parts: 1 is the high density region, which includes investigations conducted within Clusters, Filaments and sheets. 2 is the low density reigon, which are defined as distances from void regions, as truly low density regions are within voids themselves alas there are not enough halos residing within voids to comprise a statistical analysis, thus we have investigated distances gradually further and further from voids.
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{pascal_dm_only_lcdm_grid_fitmethod_DTFE_lss2_grid1250_particles100.png} 
+\caption{This figure shows the alignment of halos between filaments as a function of mass for \lcdm. Each colored curve represents a different z as per legend included. SUBPLOT MORE COSMOLOGIES }\label{lcdm_subdiv}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{pascal_dm_gas_lcdm_grid_fitmethod_my_den_lss2_grid1250_particles100.png} 
+\caption{As per \ref{lcdm_subdiv} for \lcdm gas. SUBPLOT MORE COSMOLOGIES }\label{gaslcdm_subdiv}
+\end{figure}
+
+
+\begin{table*}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+	
+	\hline
+	\textit{z} & 0 & 0.26 & 0.59 & 1.0 & 1.51 & 2.16 & 2.98\\
+	\hline
+	DM Only\\
+	\hline
+    \lcdm & 65,818 & 54,306 & 40,402 & 25,055 & 11,805 & 3,507 & 492 \\
+	\hline
+    \qcdm & 72,415 & 61,603 & 47,479 & 31,447 & 16,466 & 5,879 & 1,166 \\
+	\hline 
+    \lwdm & 65,916 & 54,391 & 40,392 & 25,088 & 11,805 & 3,465 & 520 \\
+	\hline
+    DM + Gas\\
+	\hline  
+	 \lcdm & 124,841 & 115,500 & 100,747 & 77,862 & 48,413 & 21,141 & 5,246 \\
+	\hline 
+	 \qcdm & 133,213 & 124,376 & 112,732 & 93,592 & 64,730& 33,605 & 11,121 \\
+	\hline 
+	\qcdmo & 138,075 & 129,331 & 116,598 & 95,155 & 64,241 & 31,720 & - \\
+	\hline 
+	\qcdmoo & 138,548 & 129,893 & 115,253 & 91,967 & 59,831 & 28,003 & 7,851 \\
+	\hline 
+    
+\end{tabular}
+\caption{This table shows the number of halos for each cosmology and snapshot therein, for halos comprised of more than 100 particles each}\label{qtys}
+\end{table*}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{pascal_modfitted_dm_only_snapshot_008_grid_fitmethod_DTFE_lss2_grid1250_particles100_smth2_35_5_mass20_20_20_dpmthd_increm_90_90_90_perc.png} 
+\caption{As per \ref{snp8_increm} for \lwdm{} SUBPLOT MORE SNAPSHOTS }\label{cde099_subdiv}
+\end{figure}
+
+All cosmologies compared have had the same initial seeds, thus any differences therein are attributed to the differences in cosmologies. As a general comparison, we find that more halos are found within the quintessence cosmologies than others.
 \\
+In this section we will detail the results from 4 loosely related investigations of the simulations: Spin-LSS alignment, Halo-Halo spin alignment, Halo alignment subtraction and formation time of halos. Although we have access to snapshots ranging z=0-12, we have limited our investigation to z=0-2.98 as past this \textit{z} there aren't enough halos to statistically compare. The cosmologies each have similar quantities of halos across time, seen in Table \ref{qtys} the cosmologies are much more sparse of halos at \textit{z} approaching 2.98. 
+
+We seek potentially observable differences between cosmologies, especially through the lens of halo spin. A difference in signal may not necessarily have a causal link to the cosmology but more often be due to the discrepancy of data points in the bins of compared signals. 
+
+\subsection{Halo Spin - LSS Axes}\label{halolss}
+Introduced in the previous section, we fit Equation \ref{mod} to dot-product distributions as a function of Halo mass. Figures \ref{lcdm_subdiv} and \ref{cde099_subdiv} display the alignment signals for all three smoothing scales at the given \textit{z}, for each given cosmology within the DM-only simulations. As mentioned, an increase in \textit{z} leads to a reduction in the number of halos classified. This forced us to reduce the number of bins to avoid scarce bins which would only produce noisy signals. As only halos with more than 100 particles are taken into account when calculating the correlations, this cuts off the low mass halos at beyond the transition mass of ~$10^{12.5}\Msun$, thus leaving only positive values for c (not including eccentric dips below c=0 line which are attributed to scarcity of bin) as seen in the figures. 
+\\
+For Figure \ref{snp8_increm} we employ a moving bin to represent the same curves as Figure \ref{lcdm_subdiv}, largely reduced erratic behavior of the signals as more halos are included within each bin. The downside of using a moving bin is that the 1$\sigma$ will be correlated for close by bins, but it does not negate any differences between curves that may arise as a result of more stable signals. 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{halo_halo_dm_only3.png} 
+\caption{As per \ref{snp8_increm} for \lwdm{} SUBPLOT MORE SNAPSHOTS }\label{hhdm}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{halo_halo_dm_gas1.png} 
+\caption{As per \ref{snp8_increm} for \lwdm{} SUBPLOT MORE SNAPSHOTS }\label{hhdmg}
+\end{figure}
+\subsection{Spin - Spin}\label{ss}
+Halo-halo alignment has been done by a few works (include references) and is also predicted by TTT of the alignment between halos of close proximity. This perspective uses spin as a probe at the smallest scales of the cosmological simulation to test in which to test for unique cosmic influences. The signals in Figure \ref{hhdm} are calculated by firstly finding the distance between halos, then as a function of distance, binning the dot-product value of the halos which are within the given distance bin, the mean is then taken for 10,000 bootstrap resamplings and the curves and shadings are obtained as stipulated in section \ref{halolss}.
+The processing which Figure \ref{hhdmg} is obtained with is virtually identical, although the number of bins were reduced as less halos are found for distances below 0.1Mpc/h to the extent that at \textit{z}>1 curves were omitted due to the drastic reduction in the quantity of halos which lead to significant noise, impacting the readability. 
+\\
+The halo pairs are also compared by their masses, that is through a mass ratio. 
 
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{hhh_lss_dm_only_11_smth35.png} 
+\caption{As per \ref{snp8_increm} for \lwdm{} SUBPLOT MORE SNAPSHOTS }\label{hhhdm}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{hhh_lss_dm_gas_11_smth5.png} 
+\caption{As per \ref{snp8_increm} for \lwdm{} SUBPLOT MORE SNAPSHOTS }\label{hhhdmg}
+\end{figure}
+\subsection{Alignment Subtraction}
+This investigation aims to determine the average difference of  halo-LSS alignment as a function of distance between halos. This could distinguish cosmologies with differing rates of matter flows such as stipulated in the conclusions of \citet{Adermann_18} in describing the discrepancies found in voids across non-standard cosmologies. Similarly to Section \ref{halolss} the alignment is calculated between Halo-LSS, then this is subtracted by coupled halos (in which the coupling is determined on the basis of distance apart, identical to Section \ref{ss}) and the absolute value is taken as per equation below:
+\begin{ceqn}
+\begin{equation}
+S=\langle||J(x)\cdot e_{3x}|-|J(x+r)\cdot e_{3(x+r)}||\rangle
+\label{hhsubeq}
+\end{equation}
+\end{ceqn}
+This statistic was also applied to halos within select type of LSS. Clusters and Filament filtered halos are looked at to distinguish the generally different environments and their impacts on the halos within them. 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{ft_all.png} 
+\caption{Formation time of halos, color-coded by the cosmologies in the DM-only simulations }\label{ft}
+\end{figure}
+\subsection{Halo evolution}
+We use TreeFrog (formerly HaloTree) to track the progenitors of halos at \textit{z}=0. Using Treefrog, we have calculated the formation time of halos. The formation time is typically defined as the time at which \textit{z}=0 halos obtained 50$\%$ of their total mass. The y-axis in Figure \ref{ft} is obtained as per previous sections whereby bootstrap resampling of formation time bins are used. 
+
+\subsection{Low Density Regions}
+High density regions are prone to influences post formation of halos such as, accretion and mergers which may subsume any cosmological signatures. We apply the same spin evolution studies for halos within proximity to void regions. These halos, being within low density regions, may have their spins preserved enough such that statistical differences between cosmologies could be detected.
 
 \section{Discussion}\label{discussion}
+In the context of comparing cosmological models to find unique signals that could potentially distinguish them from an observational standpoint, the main consensus of results displayed show random differences between cosmologies at all smoothing scales. The results do not show characteristic differences. 
 
 
+\section{Conclusion}\label{conclusions}
+We have investigated the differences between cosmological models via tracking Halos through snapshots extracted from cosmological simulations. Splitting up the study in two: high density regions and low density regions, we conclude with the following points:
+\subsection{High density regions}
+\begin{itemize}
+    \item Through comparisons of the classic spin-LSS alignment correlation as a function of mass for DM and DM + Gas simulations, no unique characteristics which could tell apart a non-standard cosmology was found. Although, just as noteworthy is that non-standard cosmologies exhibit very similar behaviors in the context of these correlations such as higher orthogonal alignment at higher z.
+    \item We also looked at halo-halo alignments as a function of distance between halos in an effort to distinguish cosmologies. What is found is all cosmologies alignments agreed with literature works when all halos within the simulations we included. But we found that for halos residing within filaments only, a significantly weaker alignment signal is found due to the reduced number of halos residing within filaments alone. 
+    \item We investigated the difference between the spin alignment of neighboring halos by subtracting halo-filament alignments, to compare whether neighboring halos are to be aligned proportionally to their surrounding halos. It seems there are significant differences in this statistic across cosmologies, \lcdm being the most distinct. In filtering out halos which reside in filaments only and clusters only, we have gained no further insight as to the cause of the discrepancies of signals which include all halos. 
+    \item We have also investigated the formation time of halos across cosmologies. We have found no unique signatures thus far. 
 
-\section{Conclusion}\label{conclusion}
-
+\end{itemize}
+\subsection{low density regions}
+\begin{itemize}
+    \item Exploring spin-LSS alignment correlation for halos between 2.4 - 3.2Mpc/h we find similar conclusions as in the high density region, although much more noisy and weaker signals found since there are significantly less halos within the volumes explored.
+\end{itemize}
+Higher resolution simulations are beneficial in this case as cosmological signatures being imprinted on halo spins is a second-order effect.
 \bibliographystyle{mnras}
 \bibliography{biblio} 
 
